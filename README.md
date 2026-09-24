@@ -21,10 +21,10 @@ React + Vite + TypeScript + Tailwind. No backend, everything is computed client-
 
 | Person | Owns | Tools |
 |---|---|---|
-| P1 (Aditya) | Data schema, scoring + sequencing engine, integration contract | Claude Max |
-| P2 | Frontend/UX, all screens | Claude Max |
-| P3 | Feature wiring, testing, integration | Cursor / Lovable / Antigravity |
-| P4 | Regulatory research, verification of flagged assumptions | (no coding) |
+| Aditya | Data schema, scoring + sequencing engine, integration contract | Claude Max |
+| Ameya | Frontend/UX, all screens | Claude Max |
+| Devesh | Feature wiring, testing, integration | Cursor / Lovable / Antigravity |
+| Aryan | Regulatory research, verification of flagged assumptions | (no coding) |
 
 ## Getting started
 
