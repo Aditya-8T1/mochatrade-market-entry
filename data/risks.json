@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "source": "Round 1 deck, slide 7 (06 / RISK)",
+    "note": "These are the 4 cross-cutting strategic risks the team identified. Each is tagged to the markets it applies to so the UI can filter to whichever market is selected. None are engine_reconstruction -- these are verbatim from the deck."
+  },
+  "risks": [
+    {
+      "id": "regulatory_change",
+      "title": "Regulatory Change",
+      "subtitle": "All three rulebooks are under 18 months old",
+      "severity": "high",
+      "markets": ["uae", "brazil", "indonesia"],
+      "risk": "Brazil's SPSAV regime, Indonesia's POJK 23/2025 track and Dubai's ETD rules are all new; leverage caps can tighten at short notice.",
+      "why_it_matters": "A cap change or reinterpretation mid-launch forces a product rebuild and a re-filing.",
+      "mitigation": "Named compliance owner per jurisdiction; monthly regulatory change tracking; pre-filing legal review; design to 5x everywhere so a tighter cap never forces a rebuild."
+    },
+    {
+      "id": "fx_capital_controls",
+      "title": "FX / Capital Controls / Fund Flows",
+      "subtitle": "Fund flows are three separate problems",
+      "severity": "high",
+      "markets": ["brazil", "indonesia", "uae"],
+      "risk": "Brazil's Res. 521 pulls crypto transfers into FX reporting and requires wallet-owner ID; Indonesia mandates rupiah rails via licensed partners; India's LRS bars margin/derivatives remittance.",
+      "why_it_matters": "The UPI-first architecture cannot be reused; a wrong fund flow is an offence, not a bug.",
+      "mitigation": "Local-currency payment rails from day one (Aani, Pix, QRIS/BI-FAST); never route user funds through India; FEMA/LRS home-base review with counsel; KYC, sanctions and transaction monitoring live before launch."
+    },
+    {
+      "id": "licensing_timeline",
+      "title": "Licensing + Timeline",
+      "subtitle": "A ~9-month VARA process is the fast case",
+      "severity": "medium",
+      "markets": ["uae", "indonesia", "brazil"],
+      "risk": "Dubai's ETD authorisation is sequential to the base licence; Indonesia's Rp100bn trader tier adds a second track; a partner can stall, reprice or lose its licence.",
+      "why_it_matters": "One slipped approval pushes the whole 18-month plan and the capital behind it.",
+      "mitigation": "File early for transition-period terms; local licensed partners in Brazil and Indonesia instead of standalone licences; two partners shortlisted per market with exit clauses; checkpoints at months 6, 9 and 12 pause spend."
+    },
+    {
+      "id": "reputational_enforcement",
+      "title": "Reputational / Enforcement",
+      "subtitle": "One fine becomes every market's headline",
+      "severity": "high",
+      "markets": ["brazil", "uae", "indonesia"],
+      "risk": "CVM ordered a major exchange to stop unauthorised derivatives in Brazil (2020; settled 2024) -- regulators police unlicensed launches, not just disclosure gaps.",
+      "why_it_matters": "A fine or licence loss in one market taints the other two and the India home base.",
+      "mitigation": "Launch only after the required authorisation is confirmed, never on another market's approval; identical leverage, margin and liquidation disclosures; segregated client assets and negative-balance protection."
+    }
+  ]
+}

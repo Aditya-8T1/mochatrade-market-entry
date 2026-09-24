@@ -1,0 +1,197 @@
+{
+  "_meta": {
+    "title": "MochaTrade Market Entry Readiness — Track 1 dataset",
+    "team": "The Wealth Architects",
+    "source": "Round 1 deck (The Wealth Architects.pptx), slides 3-9",
+    "source_type_legend": {
+      "verified_fact": "a regulator/exchange/central-bank rule or figure, dated (Round 1 primary sources)",
+      "calculated": "the team's 1-5 rubric scorecard, built from verified facts against one fixed rubric",
+      "route_requires_confirmation": "flagged in Round 1 as not yet confirmed with MochaTrade's actual route",
+      "assumption": "stated assumption in Round 1 (e.g. partner availability, indicative FX)",
+      "engine_reconstruction": "NOT in the original deck — built for Round 2 to make the scoring/sequencing engine work end-to-end. Swap for real team judgment before the demo."
+    }
+  },
+  "rubric": {
+    "dimensions": [
+      { "key": "market_opportunity", "label": "Market Opportunity", "weight": 0.25, "definition": "Adoption + addressable market + payment-rail reach", "source_type": "calculated" },
+      { "key": "legality", "label": "Legality", "weight": 0.25, "definition": "Defensible route for the initial crypto-derivatives entry (US equities gated separately)", "source_type": "calculated" },
+      { "key": "licence", "label": "Licence", "weight": 0.20, "definition": "Capital / local-entity burden", "source_type": "calculated" },
+      { "key": "fx_custody", "label": "FX / Custody", "weight": 0.15, "definition": "Capital controls and self-custody rules", "source_type": "calculated" },
+      { "key": "clarity", "label": "Clarity", "weight": 0.15, "definition": "A usable licensing path exists today", "source_type": "calculated" }
+    ],
+    "scale": "1 (weakest) to 5 (strongest) per dimension",
+    "note": "Screening score identifies candidates. It does NOT set the entry sequence — adaptation cost and execution feasibility do (see sequencing_weights below). This is the deck's own 'SCORE ≠ SEQUENCE' finding (slide 6) and is the single most important thing this tool must preserve.",
+    "weight_presets": {
+      "base": { "market_opportunity": 0.25, "legality": 0.25, "licence": 0.20, "fx_custody": 0.15, "clarity": 0.15, "source_type": "verified_fact", "note": "the exact weights printed on slide 4" },
+      "regulation_heavy": { "market_opportunity": 0.15, "legality": 0.35, "licence": 0.20, "fx_custody": 0.15, "clarity": 0.15, "source_type": "engine_reconstruction", "note": "slide 4 footnote says the top 3 were stress-tested under a 'regulation-heavy' weighting but doesn't print the numbers — this is a reconstruction. Replace with your working notes if you kept the real ones." },
+      "market_heavy": { "market_opportunity": 0.40, "legality": 0.20, "licence": 0.15, "fx_custody": 0.10, "clarity": 0.15, "source_type": "engine_reconstruction", "note": "same caveat as regulation_heavy" },
+      "capital_tight": { "market_opportunity": 0.15, "legality": 0.20, "licence": 0.35, "fx_custody": 0.20, "clarity": 0.10, "source_type": "engine_reconstruction", "note": "same caveat as regulation_heavy" }
+    }
+  },
+  "sequencing_weights": {
+    "lambda_adaptation_cost": 0.35,
+    "lambda_execution_dependency": 0.35,
+    "source_type": "engine_reconstruction",
+    "note": "Tuned so the engine's combined priority index reproduces the deck's own sequence (Dubai 1st, Brazil 2nd, Indonesia 3rd) despite Brazil having the highest raw screening score. See src/engine/sequencing.ts:recommendedSequence(). Retune if adaptation_cost/execution_dependency estimates below change."
+  },
+  "markets": [
+    {
+      "id": "brazil",
+      "name": "Brazil",
+      "cleared": true,
+      "scores": { "market_opportunity": 5, "legality": 4, "licence": 3, "fx_custody": 3, "clarity": 4 },
+      "evidence_confidence": "high",
+      "screening_score_deck": 3.9,
+      "market_signal": "B3 dated futures · 148M+ Pix users · SPSAV regime live",
+      "deep_dive": {
+        "qualifies_reason": "Largest commercial base on the shortlist — 148M+ Pix users; VASP regime now live.",
+        "crypto_route": "BCB Res. 519-521/2025 create the SPSAV licence; crypto futures trade on B3 via a licensed intermediary — dated contracts, not perpetuals.",
+        "equities_route": "CVM-regulated; local introducing-broker model has precedent. MochaTrade's route requires confirmation.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Rebuild perpetuals as dated futures; Pix funding and withdrawal; identify wallet owners on self-custody transfers.",
+        "capital_and_licensing": "Partner with, or register as, a BCB-authorised SPSAV (own licence: BCB capital tiers apply). Filing window for existing operators closes 30 Oct 2026.",
+        "commercial_adoption": "Pix at national scale; dated futures change the perpetuals UX — validate demand before full rollout.",
+        "local_payment_rail": "Pix",
+        "main_hurdle": "BCB SPSAV + B3 access"
+      },
+      "sequence": {
+        "rank": 2,
+        "window": "Months 6-12",
+        "label": "Commercial scale",
+        "go_gate": ["SPSAV route via BCB-authorised partner", "B3 intermediary / access confirmed", "Perpetuals rebuilt as dated futures"],
+        "rationale": "Largest base on the shortlist (148M+ Pix users) — worth the rebuild, so filing starts while Dubai is in build.",
+        "if_delayed": "Hold at US equities until B3 access and product classification are confirmed."
+      },
+      "adaptation_cost": 3,
+      "execution_dependency": 2,
+      "adaptation_execution_source_type": "engine_reconstruction",
+      "adaptation_execution_rationale": "Medium adaptation cost: full product rebuild (perpetuals -> dated futures) but a well-precedented introducing-broker/SPSAV route, no new local exchange partner beyond B3 access."
+    },
+    {
+      "id": "uae",
+      "name": "Dubai (UAE)",
+      "cleared": true,
+      "scores": { "market_opportunity": 3, "legality": 4, "licence": 4, "fx_custody": 4, "clarity": 4 },
+      "evidence_confidence": "high",
+      "screening_score_deck": 3.8,
+      "market_signal": "Retail perpetuals explicit · ≤5× leverage · suitability",
+      "deep_dive": {
+        "qualifies_reason": "Only rulebook that names retail perpetuals explicitly; dollar-pegged AED, no capital controls.",
+        "crypto_route": "VARA Exchange Services Rulebook, Part V (ETD, 31 Mar 2026): perpetuals permitted at <=5x retail leverage, 20% minimum margin, suitability checks.",
+        "equities_route": "Outside VARA's remit — separate securities-brokerage licence (SCA or DFSA/DIFC). Route requires confirmation.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Cap leverage at 5x (vs. higher India multiples); suitability onboarding. Less revenue per user, clearer legal route.",
+        "capital_and_licensing": "AED 800k+ base capital (approx. US$0.2M), plus VARA custody/overhead add-ons. ETD authorisation is sequential to the base licence.",
+        "commercial_adoption": "Small market: proves product and compliance, not volume. Aani instant rail; demand is a hypothesis to test.",
+        "commercial_adoption_source_type": "assumption",
+        "local_payment_rail": "Aani",
+        "main_hurdle": "VARA ETD authorisation"
+      },
+      "sequence": {
+        "rank": 1,
+        "window": "Months 0-9",
+        "label": "Product fit",
+        "go_gate": ["VARA ETD authorisation", "<=5x retail leverage · 20% min. margin", "Suitability checks at onboarding"],
+        "rationale": "Only market where retail perpetuals are explicitly legal — the cheapest proof the product works under regulation.",
+        "if_delayed": "Route through a licensed partner."
+      },
+      "adaptation_cost": 1,
+      "execution_dependency": 1,
+      "adaptation_execution_source_type": "engine_reconstruction",
+      "adaptation_execution_rationale": "Lowest adaptation cost and execution dependency: closest product fit (perpetuals already explicit), lowest capital, direct licence (no local partner required)."
+    },
+    {
+      "id": "indonesia",
+      "name": "Indonesia",
+      "cleared": true,
+      "scores": { "market_opportunity": 5, "legality": 3.5, "licence": 3, "fx_custody": 2, "clarity": 4 },
+      "evidence_confidence": "high",
+      "screening_score_deck": 3.6,
+      "market_signal": "22.9M accounts · perpetuals live via licensed traders",
+      "deep_dive": {
+        "qualifies_reason": "22.9M crypto accounts (OJK, Jul 2026); perpetuals already live on CFX through licensed traders.",
+        "crypto_route": "Partner with a licensed physical crypto trader (Pedagang / PAKD) routing derivatives through CFX under POJK 23/2025. Partner terms require confirmation.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US-stock access has local precedent via licensed intermediaries; MochaTrade's route requires confirmation.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Cannot operate as a single app: partner-fronted onboarding; settlement moves from UPI to QRIS / BI-FAST via a licensed payment partner.",
+        "capital_and_licensing": "Own Pedagang licence needs Rp100bn minimum capital (exchange tier up to Rp1tn) — deferred; enter partner-led.",
+        "commercial_adoption": "Large regulated ecosystem — Rp3.41tn monthly derivatives value (OJK, Jul 2026) — but the highest localisation burden.",
+        "local_payment_rail": "QRIS / BI-FAST",
+        "main_hurdle": "Licensed partner"
+      },
+      "sequence": {
+        "rank": 3,
+        "window": "Months 12-18",
+        "label": "Localisation",
+        "go_gate": ["Licensed Pedagang / partner route", "Local exchange infrastructure (CFX)", "Local payment rails: QRIS / BI-FAST"],
+        "rationale": "Strong demand (22.9M accounts) but two partners, new rails, new language — highest execution dependency.",
+        "if_delayed": "Switch to the backup partner."
+      },
+      "adaptation_cost": 4,
+      "execution_dependency": 5,
+      "adaptation_execution_source_type": "engine_reconstruction",
+      "adaptation_execution_rationale": "Highest adaptation cost and execution dependency: not a single-app model, needs partner-fronted onboarding plus a new payment rail (QRIS/BI-FAST) and new language."
+    },
+    {
+      "id": "philippines",
+      "name": "Philippines",
+      "cleared": false,
+      "scores": { "market_opportunity": 4, "legality": 2, "licence": 2, "fx_custody": 3, "clarity": 3 },
+      "evidence_confidence": "limited",
+      "screening_score_deck": 2.8,
+      "market_signal": "BSP moratorium · SEC route · Php100M capital",
+      "screened_out_reason": "BSP moratorium on new virtual-asset-service-provider licences plus a Php100M capital bar keep legality and licence scores low despite real demand."
+    },
+    {
+      "id": "nigeria",
+      "name": "Nigeria",
+      "cleared": false,
+      "scores": { "market_opportunity": 4, "legality": 2, "licence": 3, "fx_custody": 2, "clarity": 2 },
+      "evidence_confidence": "limited",
+      "screening_score_deck": 2.7,
+      "market_signal": "Draft SEC rules · resident CEO · N2B capital",
+      "screened_out_reason": "Rules are still in draft, require a resident CEO and N2B capital — clarity and FX/custody too weak to clear."
+    },
+    {
+      "id": "pakistan",
+      "name": "Pakistan",
+      "cleared": false,
+      "scores": { "market_opportunity": 4, "legality": 2, "licence": 2, "fx_custody": 2, "clarity": 2 },
+      "evidence_confidence": "limited",
+      "screening_score_deck": 2.5,
+      "market_signal": "Licensing opened Aug 2026 · untested · rupee-only accounts",
+      "screened_out_reason": "Licensing regime opened only in Aug 2026 and is untested; rupee-only accounts add FX friction."
+    },
+    {
+      "id": "thailand",
+      "name": "Thailand",
+      "cleared": false,
+      "scores": { "market_opportunity": 3, "legality": 2, "licence": 2, "fx_custody": 2, "clarity": 2 },
+      "evidence_confidence": "limited",
+      "screening_score_deck": 2.3,
+      "market_signal": "Overseas derivatives access · proposal only (Aug 2026)",
+      "screened_out_reason": "The relevant access route is still a proposal (Aug 2026 SEC consultation), not a rule teams can file against."
+    },
+    {
+      "id": "south_africa",
+      "name": "South Africa",
+      "cleared": false,
+      "scores": { "market_opportunity": 2, "legality": 2, "licence": 3, "fx_custody": 1, "clarity": 2 },
+      "evidence_confidence": "limited",
+      "screening_score_deck": 2.1,
+      "market_signal": "310 CASPs licensed · draft rule blocks self-custody transfers",
+      "screened_out_reason": "A draft Capital Flow Management Regulation would block self-custody inflows outright — the lowest FX/custody score on the board."
+    },
+    {
+      "id": "vietnam",
+      "name": "Vietnam",
+      "cleared": false,
+      "scores": { "market_opportunity": 4, "legality": 1, "licence": 1, "fx_custody": 1, "clarity": 2 },
+      "evidence_confidence": "limited",
+      "screening_score_deck": 1.9,
+      "market_signal": "~US$380M capital · <=49% foreign ownership · VND-only",
+      "screened_out_reason": "Ranks #4 globally in crypto adoption but the pilot needs ~US$380M capital and caps foreign ownership at 49% — legality and licence both fail."
+    }
+  ]
+}
