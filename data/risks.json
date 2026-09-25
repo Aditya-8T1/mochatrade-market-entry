@@ -1,7 +1,8 @@
 {
   "_meta": {
     "source": "Round 1 deck, slide 7 (06 / RISK)",
-    "note": "These are the 4 cross-cutting strategic risks the team identified. Each is tagged to the markets it applies to so the UI can filter to whichever market is selected. None are engine_reconstruction -- these are verbatim from the deck."
+    "note": "These are the 4 cross-cutting strategic risks the team identified. Each is tagged to the markets it applies to so the UI can filter to whichever market is selected. None are engine_reconstruction -- these are verbatim from the deck.",
+    "mitigation_notes": "mitigation_notes (added in Round 2) scope each deck mitigation to one market so the selected market never shows another market's rails or partners. They restate the deck mitigation using facts already in markets.json and risks.json -- no new regulatory claims. The cross-cutting 'mitigation' field remains the deck text verbatim."
   },
   "risks": [
     {
@@ -9,40 +10,96 @@
       "title": "Regulatory Change",
       "subtitle": "All three rulebooks are under 18 months old",
       "severity": "high",
-      "markets": ["uae", "brazil", "indonesia"],
+      "markets": [
+        "uae",
+        "brazil",
+        "indonesia"
+      ],
       "risk": "Brazil's SPSAV regime, Indonesia's POJK 23/2025 track and Dubai's ETD rules are all new; leverage caps can tighten at short notice.",
       "why_it_matters": "A cap change or reinterpretation mid-launch forces a product rebuild and a re-filing.",
-      "mitigation": "Named compliance owner per jurisdiction; monthly regulatory change tracking; pre-filing legal review; design to 5x everywhere so a tighter cap never forces a rebuild."
+      "mitigation": "Named compliance owner per jurisdiction; monthly regulatory change tracking; pre-filing legal review; design to 5x everywhere so a tighter cap never forces a rebuild.",
+      "mitigation_notes": {
+        "uae": "Named VARA compliance owner; monthly tracking of VARA rulebook changes; pre-filing legal review; build to the 5x cap so a tighter cap never forces a rebuild.",
+        "brazil": "Named compliance owner for BCB / CVM; monthly tracking of SPSAV rules and B3 contract classification; pre-filing legal review; build to 5x so a tighter cap never forces a rebuild.",
+        "indonesia": "Named compliance owner for OJK; monthly tracking of the POJK 23/2025 track; pre-filing legal review with the partner; build to 5x so a tighter cap never forces a rebuild."
+      },
+      "market_notes": {
+        "uae": "Dubai's ETD rules (VARA Part V, Mar 2026) are months old; a retail leverage cap below 5x would force a product change.",
+        "brazil": "Brazil's SPSAV regime (Res. 519-521/2025) is new and B3's contract classification can still move; leverage caps can tighten at short notice.",
+        "indonesia": "Indonesia's POJK 23/2025 track is new; a reinterpretation mid-launch forces a re-filing through the partner."
+      }
     },
     {
       "id": "fx_capital_controls",
       "title": "FX / Capital Controls / Fund Flows",
       "subtitle": "Fund flows are three separate problems",
       "severity": "high",
-      "markets": ["brazil", "indonesia", "uae"],
+      "markets": [
+        "brazil",
+        "indonesia",
+        "uae"
+      ],
       "risk": "Brazil's Res. 521 pulls crypto transfers into FX reporting and requires wallet-owner ID; Indonesia mandates rupiah rails via licensed partners; India's LRS bars margin/derivatives remittance.",
       "why_it_matters": "The UPI-first architecture cannot be reused; a wrong fund flow is an offence, not a bug.",
-      "mitigation": "Local-currency payment rails from day one (Aani, Pix, QRIS/BI-FAST); never route user funds through India; FEMA/LRS home-base review with counsel; KYC, sanctions and transaction monitoring live before launch."
+      "mitigation": "Local-currency payment rails from day one (Aani, Pix, QRIS/BI-FAST); never route user funds through India; FEMA/LRS home-base review with counsel; KYC, sanctions and transaction monitoring live before launch.",
+      "mitigation_notes": {
+        "uae": "Aani rail from day one; never route user funds through India; FEMA/LRS home-base review with counsel; KYC, sanctions and transaction monitoring live before launch.",
+        "brazil": "Pix rail from day one; wallet-owner identification and FX reporting on self-custody transfers (Res. 521); never route user funds through India; FEMA/LRS review with counsel.",
+        "indonesia": "Rupiah rails (QRIS / BI-FAST) through the licensed payment partner from day one; never route user funds through India; FEMA/LRS review with counsel."
+      },
+      "market_notes": {
+        "uae": "Dollar-pegged AED and no capital controls, but funds must still never route through India (LRS bars margin/derivatives remittance) — Aani rail from day one.",
+        "brazil": "Res. 521 pulls crypto transfers into FX reporting and requires wallet-owner ID on self-custody transfers; Pix rail from day one.",
+        "indonesia": "Rupiah rails are mandatory via licensed partners (QRIS / BI-FAST); a wrong fund flow is an offence, not a bug."
+      }
     },
     {
       "id": "licensing_timeline",
       "title": "Licensing + Timeline",
       "subtitle": "A ~9-month VARA process is the fast case",
       "severity": "medium",
-      "markets": ["uae", "indonesia", "brazil"],
+      "markets": [
+        "uae",
+        "indonesia",
+        "brazil"
+      ],
       "risk": "Dubai's ETD authorisation is sequential to the base licence; Indonesia's Rp100bn trader tier adds a second track; a partner can stall, reprice or lose its licence.",
       "why_it_matters": "One slipped approval pushes the whole 18-month plan and the capital behind it.",
-      "mitigation": "File early for transition-period terms; local licensed partners in Brazil and Indonesia instead of standalone licences; two partners shortlisted per market with exit clauses; checkpoints at months 6, 9 and 12 pause spend."
+      "mitigation": "File early for transition-period terms; local licensed partners in Brazil and Indonesia instead of standalone licences; two partners shortlisted per market with exit clauses; checkpoints at months 6, 9 and 12 pause spend.",
+      "mitigation_notes": {
+        "uae": "File early for transition-period terms; start the ETD application as soon as the base licence is granted; checkpoints at months 6 and 9 pause spend.",
+        "brazil": "File before the 30 Oct 2026 window closes; enter through a BCB-authorised SPSAV partner rather than a standalone licence; two partners shortlisted with exit clauses; checkpoint at month 12 pauses spend.",
+        "indonesia": "Enter through a licensed Pedagang / PAKD partner instead of the Rp100bn own licence; two partners shortlisted with exit clauses; checkpoint at month 12 pauses spend."
+      },
+      "market_notes": {
+        "uae": "ETD authorisation is sequential to the base VARA licence — a ~9-month process is the fast case.",
+        "brazil": "Filing window for existing operators closes 30 Oct 2026; a SPSAV partner can stall, reprice or lose its licence.",
+        "indonesia": "Own Pedagang licence needs Rp100bn capital, so entry depends on a partner that can stall or lose its licence; two partners shortlisted."
+      }
     },
     {
       "id": "reputational_enforcement",
       "title": "Reputational / Enforcement",
       "subtitle": "One fine becomes every market's headline",
       "severity": "high",
-      "markets": ["brazil", "uae", "indonesia"],
+      "markets": [
+        "brazil",
+        "uae",
+        "indonesia"
+      ],
       "risk": "CVM ordered a major exchange to stop unauthorised derivatives in Brazil (2020; settled 2024) -- regulators police unlicensed launches, not just disclosure gaps.",
       "why_it_matters": "A fine or licence loss in one market taints the other two and the India home base.",
-      "mitigation": "Launch only after the required authorisation is confirmed, never on another market's approval; identical leverage, margin and liquidation disclosures; segregated client assets and negative-balance protection."
+      "mitigation": "Launch only after the required authorisation is confirmed, never on another market's approval; identical leverage, margin and liquidation disclosures; segregated client assets and negative-balance protection.",
+      "mitigation_notes": {
+        "uae": "No soft launch before ETD authorisation; identical leverage, margin and liquidation disclosures; segregated client assets and negative-balance protection.",
+        "brazil": "Launch only after SPSAV and B3 access are confirmed, never on Dubai's approval; identical disclosures; segregated client assets and negative-balance protection.",
+        "indonesia": "Launch only after the partner route is confirmed; contract terms and a backup partner for partner licence loss; identical disclosures; segregated client assets."
+      },
+      "market_notes": {
+        "brazil": "CVM ordered a major exchange to stop unauthorised derivatives (2020; settled 2024) — launching before SPSAV/B3 access is confirmed is exactly the pattern regulators police.",
+        "uae": "VARA publicly names and fines unlicensed operators; no soft launch before ETD authorisation.",
+        "indonesia": "OJK enforces through the licensed partner — a partner losing its licence takes the product offline."
+      }
     }
   ]
 }

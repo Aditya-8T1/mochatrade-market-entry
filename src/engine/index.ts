@@ -30,6 +30,7 @@ import * as sequencing from "./sequencing";
 import * as recommendation from "./recommendation";
 import type { EngineData, WeightPreset } from "./recommendation";
 import * as weightsLib from "./weights";
+import * as decision from "./decision";
 
 const ALL_MARKETS = markets.markets as unknown as Market[];
 const ALL_RISKS = risksData.risks as unknown as Risk[];
@@ -67,25 +68,54 @@ for (const [name, preset] of Object.entries(PRESETS)) {
 
 const LABELS = Object.fromEntries(DIMENSIONS.map((d) => [d.key, d.label]));
 
-export const engine: MarketEntryEngine = {
-  getAllMarkets: () => ALL_MARKETS,
-  getMarket: (id) => ALL_MARKETS.find((m) => m.id === id),
-  computeScreeningScore: (market, weights) => scoring.computeScreeningScore(market, weights, LABELS),
-  rankMarkets: (weights) => scoring.rankMarkets(ALL_MARKETS, weights, LABELS),
-  recommendedSequence: (weights) => sequencing.recommendedSequence(ALL_MARKETS, weights, SEQUENCING_PARAMETERS, LABELS),
-  explainDivergence: (marketId, weights) => recommendation.explainDivergence(DATA, marketId, weights),
-  getRisksForMarket: (marketId) => ALL_RISKS.filter((r) => r.markets.includes(marketId)),
-  getWeightPresets: () =>
-    Object.fromEntries(Object.entries(PRESETS).map(([name, p]) => [name, { ...p.weights }])) as Record<string, RubricWeights>,
-  getDefaultWeights: () => ({ ...PRESETS.base.weights }),
-  getDimensions: () => DIMENSIONS.map((d) => ({ ...d })),
-  validateWeights: weightsLib.validateWeights,
-  normalizeWeights: weightsLib.normalizeWeights,
-  describeWeights: (weights) => weightsLib.describeWeights(weights, PRESETS),
-  getSequencingParameters: () => ({ ...SEQUENCING_PARAMETERS }),
-  getRecommendation: (weights) => recommendation.getRecommendation(DATA, weights),
-  getMarketRecommendation: (marketId, weights) => recommendation.getMarketRecommendation(DATA, marketId, weights),
-};
+const CLEAR_THRESHOLD: number = (markets.rubric as unknown as { clear_threshold?: { value: number } }).clear_threshold?.value ?? 3.0;
 
-export { InvalidWeightsError, DIMENSION_KEYS } from "./weights";
+/**
+ * Builds an engine over a dataset. The default export `engine` is the
+ * Round 1 data; `engine.withMarkets(extra)` returns a second engine that
+ * also knows about markets the user entered through the UI, without ever
+ * mutating the base data (so tests and the deck-reproduction guarantees
+ * keep holding on `engine`).
+ */
+export function createEngine(data: EngineData): MarketEntryEngine {
+  const all = data.markets;
+  const risksFor = (marketId: string): Risk[] => {
+    const m = all.find((x) => x.id === marketId);
+    return m ? recommendation.risksForMarket(data, m) : [];
+  };
+  return {
+    getAllMarkets: () => all,
+    getMarket: (id) => all.find((m) => m.id === id),
+    computeScreeningScore: (market, weights) => scoring.computeScreeningScore(market, weights, LABELS),
+    rankMarkets: (weights) => scoring.rankMarkets(all, weights, LABELS),
+    recommendedSequence: (weights) => sequencing.recommendedSequence(all, weights, data.sequencingParameters, LABELS),
+    explainDivergence: (marketId, weights) => recommendation.explainDivergence(data, marketId, weights),
+    getRisksForMarket: risksFor,
+    getWeightPresets: () =>
+      Object.fromEntries(Object.entries(data.presets).map(([name, p]) => [name, { ...p.weights }])) as Record<string, RubricWeights>,
+    getDefaultWeights: () => ({ ...data.presets.base.weights }),
+    getDimensions: () => data.dimensions.map((d) => ({ ...d })),
+    validateWeights: weightsLib.validateWeights,
+    normalizeWeights: weightsLib.normalizeWeights,
+    describeWeights: (weights) => weightsLib.describeWeights(weights, data.presets),
+    getSequencingParameters: () => ({ ...data.sequencingParameters }),
+    getRecommendation: (weights) => recommendation.getRecommendation(data, weights),
+    getMarketRecommendation: (marketId, weights) => recommendation.getMarketRecommendation(data, marketId, weights),
+    getRegulatoryRisk: (marketId, weights) => {
+      const m = all.find((x) => x.id === marketId);
+      return m ? decision.regulatoryRisk(m, weights, data) : undefined;
+    },
+    getDecision: (marketId, weights) => decision.decisionFor(data, marketId, weights),
+    getRobustness: () => decision.robustness(data),
+    getClearThreshold: () => CLEAR_THRESHOLD,
+    withMarkets: (extra) => createEngine({ ...data, markets: [...all, ...extra] }),
+    deriveSequencingInputs: sequencing.deriveSequencingInputs,
+  };
+}
+
+export const engine: MarketEntryEngine = createEngine(DATA);
+
+export { InvalidWeightsError, DIMENSION_KEYS, formatScore } from "./weights";
+export { mitigationFor } from "./recommendation";
+export { regulatoryBlocker, LEGALITY_BLOCKER, LICENCE_BLOCKER } from "./decision";
 export * from "./types";

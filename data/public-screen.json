@@ -1,0 +1,1861 @@
+{
+  "generated": "2026-09-25",
+  "sources": [
+    {
+      "name": "Atlantic Council Cryptocurrency Regulation Tracker",
+      "url": "https://www.atlanticcouncil.org/programs/geoeconomics-center/cryptoregulationtracker/",
+      "edition": "Sept 2026 edition",
+      "retrieved": "2026-09-25"
+    },
+    {
+      "name": "Chinn-Ito capital account openness index (KAOPEN)",
+      "url": "https://web.pdx.edu/~ito/Chinn-Ito_website.htm",
+      "edition": "KAOPEN update through 2023",
+      "retrieved": "2026-09-25"
+    }
+  ],
+  "countries": [
+    {
+      "iso3": "DZA",
+      "name": "Algeria",
+      "scores": {
+        "legality": 1,
+        "licence": 1,
+        "clarity": 1,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Algeria crypto status \"General ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"General ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "general_ban",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "ARG",
+      "name": "Argentina",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 4,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Argentina crypto status \"Partial ban\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "AUS",
+      "name": "Australia",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Australia crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "BGD",
+      "name": "Bangladesh",
+      "scores": {
+        "legality": 1,
+        "licence": 1,
+        "clarity": 2,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Bangladesh crypto status \"General ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"General ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 1 of 4 rule types present (aml).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "general_ban",
+        "flags": {
+          "tax": false,
+          "aml": true,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "BLR",
+      "name": "Belarus",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 3,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Belarus crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 2 of 4 rule types present (aml, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.42 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": false,
+          "aml": true,
+          "consumer": false,
+          "licensing": true
+        },
+        "ka_open": 0.418132960796356,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "BOL",
+      "name": "Bolivia",
+      "scores": {
+        "legality": 3,
+        "licence": 2,
+        "clarity": 1,
+        "fx_custody": 3,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Bolivia crypto status \"Legal\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.45 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.446004807949066,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "BGR",
+      "name": "Bulgaria",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 3,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Bulgaria crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.45 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 0.446004807949066,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "KHM",
+      "name": "Cambodia",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 2,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Cambodia crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 1 of 4 rule types present (licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "CAN",
+      "name": "Canada",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Canada crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "CHL",
+      "name": "Chile",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 4,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Chile crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.70 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 0.701705813407898,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "CHN",
+      "name": "China",
+      "scores": {
+        "legality": 1,
+        "licence": 1,
+        "clarity": 1,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): China crypto status \"General ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"General ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "general_ban",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "COL",
+      "name": "Colombia",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 2,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Colombia crypto status \"Partial ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 1 of 4 rule types present (tax).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.42 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": true,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.418132960796356,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "HRV",
+      "name": "Croatia",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 4,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Croatia crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.70 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 0.701705813407898,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "CZE",
+      "name": "Czech Republic",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Czech Republic crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "COD",
+      "name": "Democratic Republic of the Congo",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 1,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Democratic Republic of the Congo crypto status \"Partial ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "DNK",
+      "name": "Denmark",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Denmark crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "DOM",
+      "name": "Dominican Republic",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 1,
+        "fx_custody": 4,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Dominican Republic crypto status \"Partial ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.70 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.701705813407898,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "ECU",
+      "name": "Ecuador",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 1,
+        "fx_custody": 4,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Ecuador crypto status \"Partial ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.70 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.701705813407898,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "EGY",
+      "name": "Egypt",
+      "scores": {
+        "legality": 1,
+        "licence": 1,
+        "clarity": 2,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Egypt crypto status \"General ban\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"General ban\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 1 of 4 rule types present (licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.42 (2023)."
+      },
+      "raw": {
+        "legal_status": "general_ban",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": true
+        },
+        "ka_open": 0.418132960796356,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "ETH",
+      "name": "Ethiopia",
+      "scores": {
+        "legality": 1,
+        "licence": 1,
+        "clarity": 1,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Ethiopia crypto status \"General ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"General ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "general_ban",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "FRA",
+      "name": "France",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): France crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "GEO",
+      "name": "Georgia",
+      "scores": {
+        "legality": 3,
+        "licence": 2,
+        "clarity": 2,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Georgia crypto status \"Legal\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 1 of 4 rule types present (tax).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "DEU",
+      "name": "Germany",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Germany crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "GHA",
+      "name": "Ghana",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 1,
+        "fx_custody": 1,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Ghana crypto status \"Partial ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "GRC",
+      "name": "Greece",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Greece crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 3 of 4 rule types present (aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": false,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "HKG",
+      "name": "Hong Kong",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Hong Kong crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "HUN",
+      "name": "Hungary",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Hungary crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "IND",
+      "name": "India",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): India crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "IRN",
+      "name": "Iran",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 3,
+        "fx_custody": 1,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Iran crypto status \"Partial ban\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 2 of 4 rule types present (tax, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": true,
+          "aml": false,
+          "consumer": false,
+          "licensing": true
+        },
+        "ka_open": 0,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "IRL",
+      "name": "Ireland",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Ireland crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "ISR",
+      "name": "Israel",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Israel crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 3 of 4 rule types present (tax, aml, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": false,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "ITA",
+      "name": "Italy",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Italy crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "JPN",
+      "name": "Japan",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Japan crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "KAZ",
+      "name": "Kazakhstan",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Kazakhstan crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.22 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 0.222090825438499,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "KEN",
+      "name": "Kenya",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 4,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Kenya crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 3 of 4 rule types present (tax, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.70 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": false,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 0.701705813407898,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "MYS",
+      "name": "Malaysia",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Malaysia crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 3 of 4 rule types present (aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.42 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": false,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 0.418132960796356,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "MLT",
+      "name": "Malta",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Malta crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "MEX",
+      "name": "Mexico",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 4,
+        "fx_custody": 4,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Mexico crypto status \"Partial ban\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 3 of 4 rule types present (tax, aml, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.70 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": false,
+          "licensing": true
+        },
+        "ka_open": 0.701705813407898,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "MDA",
+      "name": "Moldova",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 2,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Moldova crypto status \"Partial ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 1 of 4 rule types present (tax).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": true,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "MAR",
+      "name": "Morocco",
+      "scores": {
+        "legality": 1,
+        "licence": 1,
+        "clarity": 1,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Morocco crypto status \"General ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"General ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "general_ban",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "NPL",
+      "name": "Nepal",
+      "scores": {
+        "legality": 1,
+        "licence": 1,
+        "clarity": 1,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Nepal crypto status \"General ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"General ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "general_ban",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "NLD",
+      "name": "Netherlands",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Netherlands crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "PER",
+      "name": "Peru",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Peru crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 3 of 4 rule types present (tax, aml, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": false,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "POL",
+      "name": "Poland",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 4,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Poland crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 3 of 4 rule types present (tax, aml, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.70 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": false,
+          "licensing": true
+        },
+        "ka_open": 0.701705813407898,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "PRT",
+      "name": "Portugal",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Portugal crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "ROU",
+      "name": "Romania",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 4,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Romania crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.76 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 0.761364638805389,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "RUS",
+      "name": "Russia",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 4,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Russia crypto status \"Partial ban\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "RWA",
+      "name": "Rwanda",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 1,
+        "fx_custody": 4,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Rwanda crypto status \"Partial ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.74 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.744298994541168,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "SAU",
+      "name": "Saudi Arabia",
+      "scores": {
+        "legality": 1,
+        "licence": 1,
+        "clarity": 2,
+        "fx_custody": 4,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Saudi Arabia crypto status \"General ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"General ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 1 of 4 rule types present (aml).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.70 (2023)."
+      },
+      "raw": {
+        "legal_status": "general_ban",
+        "flags": {
+          "tax": false,
+          "aml": true,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.701705813407898,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "SGP",
+      "name": "Singapore",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Singapore crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "KOR",
+      "name": "South Korea",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): South Korea crypto status \"Partial ban\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "ESP",
+      "name": "Spain",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Spain crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "CHE",
+      "name": "Switzerland",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Switzerland crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "TUN",
+      "name": "Tunisia",
+      "scores": {
+        "legality": 1,
+        "licence": 1,
+        "clarity": 1,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Tunisia crypto status \"General ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"General ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "general_ban",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "TUR",
+      "name": "Turkey",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 4,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Turkey crypto status \"Partial ban\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 3 of 4 rule types present (aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": false,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "UGA",
+      "name": "Uganda",
+      "scores": {
+        "legality": 3,
+        "licence": 2,
+        "clarity": 2,
+        "fx_custody": 4,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Uganda crypto status \"Legal\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 1 of 4 rule types present (aml).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.74 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": false,
+          "aml": true,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.744298994541168,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "UKR",
+      "name": "Ukraine",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 2,
+        "fx_custody": 1,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Ukraine crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 1 of 4 rule types present (licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": true
+        },
+        "ka_open": 0,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "GBR",
+      "name": "United Kingdom",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): United Kingdom crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "TZA",
+      "name": "United Republic of Tanzania",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 1,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): United Republic of Tanzania crypto status \"Partial ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "USA",
+      "name": "United States of America",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): United States of America crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "UZB",
+      "name": "Uzbekistan",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 2,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Uzbekistan crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 1 of 4 rule types present (licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.16 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": true
+        },
+        "ka_open": 0.162431985139847,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "VEN",
+      "name": "Venezuela",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 3,
+        "fx_custody": 1,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Venezuela crypto status \"Partial ban\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 2 of 4 rule types present (tax, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": true,
+          "aml": false,
+          "consumer": false,
+          "licensing": true
+        },
+        "ka_open": 0,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "ZMB",
+      "name": "Zambia",
+      "scores": {
+        "legality": 3,
+        "licence": 2,
+        "clarity": 1,
+        "fx_custody": 5,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Zambia crypto status \"Legal\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 0 of 4 rule types present (none).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 1.00 (2023)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": false,
+          "aml": false,
+          "consumer": false,
+          "licensing": false
+        },
+        "ka_open": 1,
+        "ka_year": 2023
+      }
+    },
+    {
+      "iso3": "ZWE",
+      "name": "Zimbabwe",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 4,
+        "fx_custody": 2,
+        "market_opportunity": null
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Zimbabwe crypto status \"Partial ban\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 3 of 4 rule types present (tax, aml, licensing).",
+        "fx_custody": "Chinn-Ito capital account openness index (KAOPEN): ka_open 0.42 (2023)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": false,
+          "licensing": true
+        },
+        "ka_open": 0.418132960796356,
+        "ka_year": 2023
+      }
+    }
+  ],
+  "unavailable": [
+    {
+      "iso3": "SRB",
+      "name": "Republic of Serbia",
+      "scores": {
+        "legality": 4,
+        "licence": 3,
+        "clarity": 4
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Republic of Serbia crypto status \"Legal\", licensing rule present.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Legal\", licensing rule present — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 4 of 4 rule types present (tax, aml, consumer, licensing)."
+      },
+      "raw": {
+        "legal_status": "legal",
+        "flags": {
+          "tax": true,
+          "aml": true,
+          "consumer": true,
+          "licensing": true
+        }
+      },
+      "reason": "No usable Chinn-Ito ka_open value (not in the index, or blank in every year)"
+    },
+    {
+      "iso3": "TWN",
+      "name": "Taiwan",
+      "scores": {
+        "legality": 2,
+        "licence": 1,
+        "clarity": 3
+      },
+      "evidence": {
+        "legality": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): Taiwan crypto status \"Partial ban\", licensing rule absent.",
+        "licence": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): status \"Partial ban\", licensing rule absent — licence burden unknown, capped at 3.",
+        "clarity": "Atlantic Council Cryptocurrency Regulation Tracker (Sept 2026 edition): 2 of 4 rule types present (aml, consumer)."
+      },
+      "raw": {
+        "legal_status": "partial_ban",
+        "flags": {
+          "tax": false,
+          "aml": true,
+          "consumer": true,
+          "licensing": false
+        }
+      },
+      "reason": "No usable Chinn-Ito ka_open value (not in the index, or blank in every year)"
+    }
+  ]
+}

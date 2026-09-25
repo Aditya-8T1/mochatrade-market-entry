@@ -1,3 +1,98 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  background-color: #0A0E13;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #28333F #0A0E13;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #28333F;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3A4756;
+}
+
+:focus-visible {
+  outline: 2px solid #22D3EE;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+}
+
+@media print {
+  html, body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  .bg-ink-900, .bg-ink-800, .bg-ink-700\/60 {
+    background: #fff !important;
+  }
+  .text-paper, .text-paper-dim, .text-paper-faint {
+    color: #111 !important;
+  }
+  .border-line, .border-line-soft, .border-line-strong {
+    border-color: #999 !important;
+  }
+  .lg\:grid-cols-\[280px_1fr_340px\] {
+    grid-template-columns: 1fr !important;
+  }
+  .lg\:h-full, .lg\:h-screen {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  details {
+    open: true;
+  }
+}
+
+/* Hatched segments for the "score minus friction" bars: the part of a
+   market's score eaten by adaptation cost (amber) or execution
+   dependency (red). Hatching, not just colour, so it survives print and
+   colour-blind viewers. */
+.friction-hatch-a {
+  background: repeating-linear-gradient(135deg, rgba(245, 166, 35, 0.55) 0 3px, rgba(245, 166, 35, 0.12) 3px 6px);
+}
+.friction-hatch-e {
+  background: repeating-linear-gradient(45deg, rgba(244, 99, 90, 0.55) 0 3px, rgba(244, 99, 90, 0.12) 3px 6px);
+}

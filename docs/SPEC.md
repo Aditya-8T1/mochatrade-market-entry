@@ -83,6 +83,8 @@ priorityIndex = weightedScore - (lambda_adaptation_cost * adaptation_cost) - (la
 
 Starting point in `data/markets.json` under `sequencing_weights`: both lambdas at 0.35. Sort `recommendedSequence()` descending by `priorityIndex`. If it doesn't reproduce the deck's order with these numbers, that's a real signal -- either retune the lambdas or revisit the adaptation_cost/execution_dependency estimates (they're reconstructions, not deck numbers -- see open questions).
 
+**Since the polish pass**, `adaptation_cost` / `execution_dependency` are derived by `deriveSequencingInputs(entry_facts)` (see `sequencing.ts`), and the engine also exposes `getDecision`, `getRegulatoryRisk`, `getRobustness`, `getClearThreshold` and `withMarkets(extra)` (a second engine over the base data plus user-entered markets -- the base `engine` is never mutated). See `src/engine/decision.ts`.
+
 `explainDivergence()` is the function that makes this legible on screen: for any market, it should say in one sentence why its raw rank and its sequence rank differ (or that they don't), grounded in the market's own `sequence.rationale` field in the data.
 
 ## F. Screens / feature map

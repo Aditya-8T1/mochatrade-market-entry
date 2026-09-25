@@ -25,8 +25,8 @@ import type {
   WeightsProvenance,
 } from "./types";
 import { rankMarkets } from "./scoring";
-import { isSequenceable, recommendedSequence } from "./sequencing";
-import { DIMENSION_KEYS, assertValidWeights, describeWeights } from "./weights";
+import { deriveSequencingInputs, isSequenceable, recommendedSequence, sequencingScores } from "./sequencing";
+import { DIMENSION_KEYS, assertValidWeights, describeWeights, formatScore } from "./weights";
 
 export interface WeightPreset {
   weights: RubricWeights;
@@ -71,12 +71,19 @@ function compute(data: EngineData, weights: RubricWeights): Computed {
   return { ranking, sequence, rawRankAmongCleared };
 }
 
-const fmt = (n: number) => n.toFixed(2);
+// One decimal, the precision Round 1 printed (3.9 / 3.8 / 3.6). Prose
+// deliberately avoids raw penalty / priority-index arithmetic: rounded
+// numbers never add up on screen, and the "score minus friction" bars in
+// the UI carry the magnitudes instead.
+const fmt = (n: number) => formatScore(n);
 
-function describeOthers(others: SequencedMarket[]): string {
-  return others
-    .map((o) => `${o.market.name} (penalty ${fmt(o.inputs.totalPenalty)}, priority ${fmt(o.priorityIndex)})`)
-    .join(", ");
+function names(others: SequencedMarket[]): string {
+  const n = others.map((o) => o.market.name);
+  return n.length <= 1 ? n.join("") : `${n.slice(0, -1).join(", ")} and ${n[n.length - 1]}`;
+}
+
+function friction(a: number, e: number): string {
+  return `adaptation cost ${a}/5 and execution dependency ${e}/5`;
 }
 
 function divergenceFrom(c: Computed, marketId: string, data: EngineData): DivergenceExplanation {
@@ -113,26 +120,28 @@ function divergenceFrom(c: Computed, marketId: string, data: EngineData): Diverg
 
   const rawC = c.rawRankAmongCleared.get(marketId) as number;
   const n = c.sequence.length;
-  const { adaptationCost: a, executionDependency: e, totalPenalty } = seq.inputs;
-  const head = `${market.name} is #${rawC} of ${n} cleared markets on raw score (${fmt(seq.screening.weightedScore)}/5) and #${seq.sequenceRank} in the entry sequence`;
+  const { adaptationCost: a, executionDependency: e } = seq.inputs;
+  const head = `${market.name} is #${rawC} of ${n} cleared markets on screening score (${fmt(seq.screening.weightedScore)}/5) and #${seq.sequenceRank} to enter`;
   let body: string;
   if (rawC === seq.sequenceRank) {
-    body = `${head} -- no divergence. Adaptation cost ${a}/5 and execution dependency ${e}/5 (penalty ${fmt(totalPenalty)}) leave its priority index at ${fmt(seq.priorityIndex)}.`;
+    const heaviest = c.sequence.every((o) => o.inputs.totalPenalty <= seq.inputs.totalPenalty);
+    const lightest = c.sequence.every((o) => o.inputs.totalPenalty >= seq.inputs.totalPenalty);
+    body = `${head}, so no divergence. Its ${friction(a, e)} are ${heaviest ? "the heaviest of the cleared markets" : lightest ? "the lightest of the cleared markets" : "in line with its position"}.`;
   } else if (seq.sequenceRank > rawC) {
     const jumpedAhead = c.sequence.filter(
       (o) => o.sequenceRank < seq.sequenceRank && (c.rawRankAmongCleared.get(o.market.id) as number) > rawC,
     );
-    body = `${head}: adaptation cost ${a}/5 and execution dependency ${e}/5 cost it ${fmt(totalPenalty)} points (priority index ${fmt(seq.priorityIndex)}), so ${describeOthers(jumpedAhead)} enter${jumpedAhead.length === 1 ? "s" : ""} first despite a lower raw score.`;
+    body = `${head}: its ${friction(a, e)} outweigh its score lead, so ${names(jumpedAhead)} enter${jumpedAhead.length === 1 ? "s" : ""} first despite scoring lower.`;
   } else {
     const overtaken = c.sequence.filter(
       (o) => o.sequenceRank > seq.sequenceRank && (c.rawRankAmongCleared.get(o.market.id) as number) < rawC,
     );
-    body = `${head}: its lower adaptation cost ${a}/5 and execution dependency ${e}/5 (penalty ${fmt(totalPenalty)}, priority index ${fmt(seq.priorityIndex)}) put it ahead of higher-scoring ${describeOthers(overtaken)}.`;
+    body = `${head}: its ${friction(a, e)} are low enough to put it ahead of higher-scoring ${names(overtaken)}.`;
   }
   if (seq.deckSequenceRank !== null && seq.deckSequenceRank !== seq.sequenceRank) {
     body += ` Note: under these weights the engine's position differs from the Round 1 deck (deck position #${seq.deckSequenceRank}).`;
   }
-  if (deckRationale) body += ` Round 1 rationale: "${deckRationale}"`;
+  if (deckRationale) body += market.user_added ? ` ${deckRationale}` : ` Round 1 rationale: "${deckRationale}"`;
 
   return {
     marketId,
@@ -144,6 +153,17 @@ function divergenceFrom(c: Computed, marketId: string, data: EngineData): Diverg
     deckRationale,
     explanation: body,
   };
+}
+
+/** Which of the cross-cutting risks apply to a market. A user-entered market that clears inherits the risks Round 1 tagged to every cleared market. */
+/** The mitigation for this risk as it applies to one market: the market-scoped note when there is one, else the cross-cutting deck mitigation. */
+export function mitigationFor(risk: Risk, marketId: string): string {
+  return risk.mitigation_notes?.[marketId] ?? risk.mitigation;
+}
+
+export function risksForMarket(data: EngineData, market: Market): Risk[] {
+  if (market.user_added && market.cleared) return data.risks.filter((r) => r.markets.length >= 3);
+  return data.risks.filter((r) => r.markets.includes(market.id));
 }
 
 export function explainDivergence(data: EngineData, marketId: string, weights: RubricWeights): DivergenceExplanation {
@@ -168,7 +188,31 @@ function collectAssumptions(market: Market, provenance: WeightsProvenance, data:
       source_type: provenance.source_type,
     });
   }
-  if (market.evidence_confidence === "limited") {
+  if (market.screen_evidence) {
+    const lines = Object.entries(market.screen_evidence).filter(([, v]) => !!v);
+    items.push({
+      field: "public_screen",
+      label: "Public-data screen",
+      statement: `${market.screen_source === "public_data" ? "All scores come from a coarse public-data screen, not Round 1 research. " : "Some sliders were prefilled from the public-data screen. "}${lines.map(([k, v]) => `${k}: ${v}`).join(" ")}`,
+      source_type: "calculated",
+    });
+  }
+  if (market.country_facts) {
+    items.push({
+      field: "country_facts",
+      label: "Country data",
+      statement: market.country_facts.evidence,
+      source_type: market.country_facts.source_type,
+    });
+  }
+  if (market.user_added) {
+    items.push({
+      field: "user_added",
+      label: "User-entered market",
+      statement: "Scores and entry-route facts were entered by hand in this tool, not researched in Round 1. Treat every figure as an assumption until verified.",
+      source_type: "assumption",
+    });
+  } else if (market.evidence_confidence === "limited" && market.screen_source !== "public_data") {
     items.push({
       field: "evidence_confidence",
       label: "Limited evidence",
@@ -185,24 +229,42 @@ function collectAssumptions(market: Market, provenance: WeightsProvenance, data:
     }
   }
   if (isSequenceable(market)) {
-    const src = market.adaptation_execution_source_type ?? "engine_reconstruction";
-    items.push({
-      field: "adaptation_cost",
-      label: "Adaptation cost score",
-      statement: `${market.adaptation_cost}/5 -- ${market.adaptation_execution_rationale ?? "team estimate for the prototype"}`,
-      source_type: src,
-    });
-    items.push({
-      field: "execution_dependency",
-      label: "Execution dependency score",
-      statement: `${market.execution_dependency}/5 -- ${market.adaptation_execution_rationale ?? "team estimate for the prototype"}`,
-      source_type: src,
-    });
+    const sc = sequencingScores(market) as { adaptationCost: number; executionDependency: number };
+    if (market.entry_facts) {
+      const d = deriveSequencingInputs(market.entry_facts);
+      const src = market.entry_facts.source_type;
+      items.push({
+        field: "adaptation_cost",
+        label: "Adaptation cost (derived)",
+        statement: `${d.adaptationCost}/5 = ${d.adaptationFormula}. ${market.entry_facts.evidence ?? ""}`.trim(),
+        source_type: src,
+      });
+      items.push({
+        field: "execution_dependency",
+        label: "Execution dependency (derived)",
+        statement: `${d.executionDependency}/5 = ${d.executionFormula}.`,
+        source_type: src,
+      });
+    } else {
+      const src = market.adaptation_execution_source_type ?? "engine_reconstruction";
+      items.push({
+        field: "adaptation_cost",
+        label: "Adaptation cost score",
+        statement: `${sc.adaptationCost}/5 -- ${market.adaptation_execution_rationale ?? "team estimate for the prototype"}`,
+        source_type: src,
+      });
+      items.push({
+        field: "execution_dependency",
+        label: "Execution dependency score",
+        statement: `${sc.executionDependency}/5 -- ${market.adaptation_execution_rationale ?? "team estimate for the prototype"}`,
+        source_type: src,
+      });
+    }
     const p = data.sequencingParameters;
     items.push({
       field: "sequencing_formula",
       label: "Sequencing formula",
-      statement: `priorityIndex = weightedScore - ${p.lambda_adaptation_cost} x adaptation_cost - ${p.lambda_execution_dependency} x execution_dependency. Built for Round 2 to quantify the deck's qualitative "score != sequence" reasoning; not a deck formula.`,
+      statement: `priorityIndex = weightedScore - ${p.lambda_adaptation_cost} x adaptation_cost - ${p.lambda_execution_dependency} x execution_dependency. Built for Round 2 to quantify the deck's qualitative "score != sequence" reasoning; the two inputs are derived from countable entry facts, the lambdas are not deck numbers.`,
       source_type: p.source_type,
     });
   }
@@ -231,18 +293,20 @@ function buildMarketRecommendation(
   const ranked = c.ranking.find((r) => r.market.id === market.id) as RankedMarket;
   const seq = c.sequence.find((s) => s.market.id === market.id);
   const provenance = describeWeights(weights, data.presets);
-  const risks = data.risks.filter((r) => r.markets.includes(market.id));
+  const risks = risksForMarket(data, market);
 
   const blockers: Blocker[] = [];
   if (seq) {
     if (market.deep_dive?.main_hurdle) blockers.push({ kind: "main_hurdle", text: market.deep_dive.main_hurdle });
-    for (const gate of market.sequence?.go_gate ?? []) blockers.push({ kind: "go_gate", text: gate });
+    for (const gate of market.sequence?.go_gate ?? []) {
+      if (!blockers.some((b) => b.text.trim().toLowerCase() === gate.trim().toLowerCase())) blockers.push({ kind: "go_gate", text: gate });
+    }
   } else if (market.screened_out_reason) {
     blockers.push({ kind: "screened_out", text: market.screened_out_reason });
   }
 
-  const mitigations: Mitigation[] = risks.map((r) => ({ source: r.id, text: r.mitigation }));
-  if (market.sequence?.if_delayed) mitigations.push({ source: "if_delayed", text: market.sequence.if_delayed });
+  const mitigations: Mitigation[] = risks.map((r) => ({ source: r.id, text: mitigationFor(r, market.id) }));
+  if (market.sequence?.if_delayed) mitigations.push({ source: "if_delayed", text: `Fallback if delayed: ${market.sequence.if_delayed}` });
 
   const productChanges = market.deep_dive?.required_product_changes;
 

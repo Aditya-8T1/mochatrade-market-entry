@@ -1,3 +1,4 @@
+import { lambdaRangeForSequence } from "./sequencing";
 import { describe, expect, it } from "vitest";
 import { engine, InvalidWeightsError, DIMENSION_KEYS } from "./index";
 import type { Market, RubricWeights } from "./index";
@@ -178,7 +179,7 @@ describe("score vs sequence separation", () => {
   it("priorityIndex = weightedScore - lambdas x (adaptation, execution), with screening untouched", () => {
     const p = engine.getSequencingParameters();
     for (const s of engine.recommendedSequence(base)) {
-      const expected = s.screening.weightedScore - p.lambda_adaptation_cost * s.market.adaptation_cost! - p.lambda_execution_dependency * s.market.execution_dependency!;
+      const expected = s.screening.weightedScore - p.lambda_adaptation_cost * s.inputs.adaptationCost - p.lambda_execution_dependency * s.inputs.executionDependency;
       expect(s.priorityIndex).toBeCloseTo(expected, 4);
       expect(s.screening).toEqual(engine.computeScreeningScore(s.market, base));
     }
@@ -257,7 +258,7 @@ describe("recommendation output", () => {
     expect(brazil.score).toMatchObject({ weightedScore: 3.9, deckScore: 3.9, matchesDeckScore: true });
     expect(brazil.breakdown.map((b) => b.key)).toEqual([...DIMENSION_KEYS]);
     expect(brazil.priorityIndex).toBeCloseTo(2.15, 4);
-    expect(brazil.sequencingInputs).toMatchObject({ adaptationCost: 3, executionDependency: 2, source_type: "engine_reconstruction" });
+    expect(brazil.sequencingInputs).toMatchObject({ adaptationCost: 3, executionDependency: 2, source_type: "calculated" });
     expect(brazil.divergence.diverges).toBe(true);
   });
 
@@ -270,12 +271,13 @@ describe("recommendation output", () => {
     expect(brazil.blockers.filter((b) => b.kind === "go_gate")).toHaveLength(3);
     expect(brazil.mitigations[brazil.mitigations.length - 1]).toEqual({
       source: "if_delayed",
-      text: "Hold at US equities until B3 access and product classification are confirmed.",
+      text: "Fallback if delayed: Hold at US equities until B3 access and product classification are confirmed.",
     });
     expect(brazil.complianceAdjustments?.items).toEqual([
       "Rebuild perpetuals as dated futures",
-      "Pix funding and withdrawal",
-      "identify wallet owners on self-custody transfers",
+      "Add Pix funding and withdrawal",
+      "Identify wallet owners on self-custody transfers",
+      "CPF-based KYC with COAF suspicious-activity reporting",
     ]);
   });
 
@@ -318,5 +320,141 @@ describe("recommendation output", () => {
     expect(engine.getMarketRecommendation("uae", base)).toEqual(byId("uae"));
     expect(engine.getMarketRecommendation("atlantis", base)).toBeUndefined();
     expect(engine.explainDivergence("atlantis", base)).toMatchObject({ rawRank: 0, sequenced: false });
+  });
+});
+
+describe("derived sequencing inputs (entry_facts)", () => {
+  it("reproduces the deck's qualitative ordering from countable facts: Dubai 1/1, Brazil 3/2, Indonesia 4/5", () => {
+    const seq = engine.recommendedSequence(engine.getDefaultWeights());
+    const byId = Object.fromEntries(seq.map((s) => [s.market.id, [s.inputs.adaptationCost, s.inputs.executionDependency]]));
+    expect(byId.uae).toEqual([1, 1]);
+    expect(byId.brazil).toEqual([3, 2]);
+    expect(byId.indonesia).toEqual([4, 5]);
+  });
+
+  it("caps derived scores to 1-5", () => {
+    const d = engine.deriveSequencingInputs({
+      licence_model: "partner",
+      product_rebuild: true,
+      rail_via_partner: true,
+      partners_required: 9,
+      localisation_required: true,
+      partner_fronted_onboarding: true,
+      source_type: "assumption",
+    });
+    expect(d.adaptationCost).toBe(4);
+    expect(d.executionDependency).toBe(5);
+  });
+});
+
+describe("decision layer", () => {
+  const w = engine.getDefaultWeights();
+
+  it("gives Dubai a low regulatory risk band and Vietnam a high one", () => {
+    expect(engine.getRegulatoryRisk("uae", w)?.band).toBe("low");
+    expect(engine.getRegulatoryRisk("vietnam", w)?.band).toBe("high");
+  });
+
+  it("issues a stage-based verdict: enter now / next / later, and no-go for screened-out markets", () => {
+    expect(engine.getDecision("uae", w)?.verdict).toBe("go_now");
+    expect(engine.getDecision("brazil", w)?.verdict).toBe("go_next");
+    expect(engine.getDecision("indonesia", w)?.verdict).toBe("go_later");
+    expect(engine.getDecision("brazil", w)?.conditions.length).toBeGreaterThan(0);
+    expect(engine.getDecision("thailand", w)?.verdict).toBe("no_go");
+  });
+
+  it("gives the three cleared markets three different verdicts, each with a label and a reason", () => {
+    const ds = ["uae", "brazil", "indonesia"].map((id) => engine.getDecision(id, w)!);
+    expect(new Set(ds.map((d) => d.verdict)).size).toBe(3);
+    for (const d of ds) {
+      expect(d.verdictLabel.length).toBeGreaterThan(0);
+      expect(d.verdictReason.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("never says 'enter now' for a #1 market whose crypto route is unconfirmed", () => {
+    const withNew = engine.withMarkets([
+      {
+        id: "custom_topland",
+        name: "Topland",
+        cleared: true,
+        user_added: true,
+        scores: { market_opportunity: 5, legality: 5, licence: 5, fx_custody: 5, clarity: 5 },
+        evidence_confidence: "limited",
+        screening_score_deck: 5,
+        market_signal: "test",
+        entry_facts: { licence_model: "own", product_rebuild: false, rail_via_partner: false, partners_required: 0, localisation_required: false, partner_fronted_onboarding: false, source_type: "assumption", evidence: "test" },
+        sequence: { rank: 0, window: "Window not yet set", label: "User-entered", go_gate: [], rationale: "test", if_delayed: "test" },
+        deep_dive: {
+          qualifies_reason: "test",
+          crypto_route: "Route not yet documented",
+          crypto_route_source_type: "route_requires_confirmation",
+          equities_route: "Route not yet documented",
+          equities_route_source_type: "route_requires_confirmation",
+          required_product_changes: "x",
+          capital_and_licensing: "x",
+          commercial_adoption: "x",
+          local_payment_rail: "x",
+          main_hurdle: "x",
+        },
+      } as never,
+    ]);
+    const d = withNew.getDecision("custom_topland", w)!;
+    expect(d.sequencePosition).toBe(1);
+    expect(d.verdict).toBe("go_next");
+  });
+
+  it("divergence prose uses the deck's one-decimal precision and no raw priority-index numbers", () => {
+    for (const id of ["uae", "brazil", "indonesia"]) {
+      const text = engine.explainDivergence(id, w).explanation;
+      expect(text).not.toMatch(/\d\.\d{2}/);
+      expect(text).not.toMatch(/priority index/i);
+    }
+    expect(engine.explainDivergence("uae", w).explanation).toContain("3.8/5");
+    expect(engine.explainDivergence("indonesia", w).explanation).toContain("3.6/5");
+  });
+
+  it("the deck sequence is stable under all four presets", () => {
+    const r = engine.getRobustness();
+    expect(r.stable).toBe(true);
+    expect(r.perMarket.map((m) => m.marketId)).toEqual(["uae", "brazil", "indonesia"]);
+  });
+
+  it("withMarkets() adds a user-entered market without touching the base engine", () => {
+    const extra = engine.withMarkets([
+      {
+        id: "custom_x",
+        name: "Testland",
+        cleared: true,
+        user_added: true,
+        scores: { market_opportunity: 5, legality: 5, licence: 5, fx_custody: 5, clarity: 5 },
+        evidence_confidence: "limited",
+        screening_score_deck: 5,
+        market_signal: "user input",
+        entry_facts: { licence_model: "own", product_rebuild: false, rail_via_partner: false, partners_required: 0, localisation_required: false, partner_fronted_onboarding: false, source_type: "assumption" },
+      },
+    ]);
+    expect(extra.recommendedSequence(w)[0].market.id).toBe("custom_x");
+    expect(engine.recommendedSequence(w)[0].market.id).toBe("uae");
+    expect(engine.getAllMarkets().length).toBe(9);
+    expect(extra.getRisksForMarket("custom_x").length).toBe(4);
+  });
+});
+
+describe("lambdaRangeForSequence (v2.6.6)", () => {
+  const mk = (score: number, a: number, e: number, L = 0.35) => ({
+    priorityIndex: score - L * (a + e),
+    inputs: { weightedScore: score, adaptationCost: a, executionDependency: e },
+  });
+  it("Round 1 order (Dubai 3.8/1/1, Brazil 3.9/3/2, Indonesia 3.6/4/5) holds for any lambda above ~0.033", () => {
+    const r = lambdaRangeForSequence([mk(3.8, 1, 1), mk(3.9, 3, 2), mk(3.6, 4, 5)]);
+    expect(r.holds).toBe(true);
+    expect(r.min).toBeCloseTo(0.1 / 3, 3);
+    expect(r.max).toBeNull();
+  });
+  it("reports an upper bound when a higher-scoring, higher-friction market sits first", () => {
+    const r = lambdaRangeForSequence([mk(4.5, 3, 3, 0.1), mk(4.0, 1, 1, 0.1)]);
+    expect(r.max).toBeCloseTo(0.125, 3);
+    expect(r.holds).toBe(true);
   });
 });

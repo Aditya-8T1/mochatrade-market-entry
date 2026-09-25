@@ -45,6 +45,8 @@ export interface DeepDive {
   crypto_route: string;
   equities_route: string;
   required_product_changes: string;
+  /** KYC / AML obligations for this route. Added in Round 2 (the build brief names KYC/AML as a rubric example); drafted from the deep-dive text and tagged until verified. */
+  kyc_aml?: string;
   capital_and_licensing: string;
   commercial_adoption: string;
   local_payment_rail: string;
@@ -53,6 +55,7 @@ export interface DeepDive {
   crypto_route_source_type?: SourceType;
   equities_route_source_type?: SourceType;
   commercial_adoption_source_type?: SourceType;
+  kyc_aml_source_type?: SourceType;
 }
 
 export interface SequenceInfo {
@@ -62,6 +65,18 @@ export interface SequenceInfo {
   go_gate: string[];
   rationale: string;
   if_delayed: string;
+}
+
+/** Countable facts about the entry route, read from the Round 1 deep dive. Sequencing inputs are DERIVED from these -- see sequencing.ts:deriveSequencingInputs(). */
+export interface EntryFacts {
+  licence_model: "own" | "partner" | "own_or_partner";
+  product_rebuild: boolean; // core product must be re-engineered (e.g. perpetuals -> dated futures, single app -> partner-fronted)
+  rail_via_partner: boolean; // local payment rail only reachable through a licensed payment partner
+  partners_required: number; // count of licensed local partners the route depends on
+  localisation_required: boolean; // new language / localisation load
+  partner_fronted_onboarding: boolean; // customers onboard through a partner, not MochaTrade's own app
+  source_type: SourceType;
+  evidence?: string;
 }
 
 export interface Market {
@@ -79,6 +94,27 @@ export interface Market {
   adaptation_execution_source_type?: SourceType;
   adaptation_execution_rationale?: string;
   screened_out_reason?: string; // only on cleared === false markets
+  entry_facts?: EntryFacts; // when present, adaptation_cost / execution_dependency are derived from it
+  entry_approach?: string; // one-sentence recommended entry approach (cleared markets)
+  entry_approach_source_type?: SourceType;
+  user_added?: boolean; // true for markets entered through the UI form
+  /** "public_data": built at runtime from data/public-screen.json (Atlantic Council tracker + Chinn-Ito). A SCREEN, not a decision: never sequenced; a cleared screen gets "shortlist" (research first), never an entry verdict. */
+  screen_source?: "public_data";
+  /** Per-dimension evidence lines behind public-screen scores (also set on a user market whose sliders were prefilled from the screen). Shown under Assumptions as "Public-data screen". */
+  screen_evidence?: Partial<Record<DimensionKey, string>>;
+  currency?: string; // ISO 4217; set on user-entered markets from the country lookup (FX row)
+  country_facts?: {
+    // provenance of what the country lookup pre-filled -- data only, no engine logic reads it
+    iso3: string | null;
+    languages: string[];
+    population: number | null;
+    gdp_per_capita_usd: number | null;
+    internet_users_pct: number | null;
+    indicator_year: number | null;
+    suggested_market_opportunity: number | null;
+    source_type: SourceType;
+    evidence: string;
+  };
 }
 
 export interface Risk {
@@ -90,6 +126,8 @@ export interface Risk {
   risk: string;
   why_it_matters: string;
   mitigation: string;
+  market_notes?: Record<string, string>; // the clause of this risk that applies to a specific market id
+  mitigation_notes?: Record<string, string>; // the mitigation scoped to a specific market id; falls back to `mitigation`
 }
 
 // ---- weights -----------------------------------------------------------
@@ -165,6 +203,49 @@ export interface DivergenceExplanation {
   sequenced: boolean;
   rawRankAmongCleared: number | null; // raw rank among sequenceable markets; this is what sequenceRank is compared against
   deckRationale: string | null;
+}
+
+// ---- decision ---------------------------------------------------------
+
+export type RiskBand = "low" | "medium" | "high";
+/**
+ * Stage-based verdict. Every cleared market has go-gates, so "go with
+ * conditions" never discriminated; the verdict now says WHEN to act.
+ *  go_now   -- #1 in the entry sequence and its core (crypto) route is confirmed
+ *  go_next  -- #2, or #1 whose core route still needs confirming: file now, launch after
+ *  go_later -- #3+: wait for the earlier markets' go-gates
+ *  shortlist -- public-data screen that clears: research the route first, commit no spend
+ *  no_go    -- did not clear screening, or hit a regulatory blocker
+ */
+export type Verdict = "go_now" | "go_next" | "go_later" | "shortlist" | "no_go";
+
+/** Regulatory-risk score: the 4 regulatory dimensions (legality, licence, fx_custody, clarity) weighted by their relative weights, inverted to a 0-100 risk figure. Market opportunity is excluded on purpose -- it is not a risk. */
+export interface RegulatoryRisk {
+  regulatoryScore: number; // 1-5, weighted mean of the 4 regulatory dimensions
+  riskScore100: number; // 0 (no regulatory risk) - 100
+  band: RiskBand;
+  drivers: Array<{ key: DimensionKey; label: string; raw: number }>; // weakest dimensions first
+}
+
+export interface Decision {
+  marketId: string;
+  verdict: Verdict;
+  verdictLabel: string; // "Enter now" / "Enter next" / "Enter later" / "Do not enter now"
+  verdictReason: string; // one plain sentence: why this stage
+  headline: string; // one sentence a non-specialist can act on
+  entryApproach: string;
+  entryApproachSource: SourceType;
+  window: string | null;
+  conditions: string[]; // go-gates + route confirmations that must close before launch
+  risk: RegulatoryRisk;
+  sequencePosition: number | null;
+}
+
+/** Does the entry order survive the 4 weight presets? */
+export interface RobustnessReport {
+  presets: Array<{ name: string; order: string[] }>; // market ids in sequence order per preset
+  perMarket: Array<{ marketId: string; marketName: string; basePosition: number; positions: Record<string, number>; stablePresets: number; totalPresets: number }>;
+  stable: boolean; // identical order under every preset
 }
 
 // ---- recommendation ----------------------------------------------------
@@ -289,4 +370,22 @@ export interface MarketEntryEngine {
 
   /** Structured recommendation for one market, or undefined for an unknown id. */
   getMarketRecommendation(marketId: string, weights: RubricWeights): MarketRecommendation | undefined;
+
+  /** Regulatory-risk score/band for a market under the given weights. */
+  getRegulatoryRisk(marketId: string, weights: RubricWeights): RegulatoryRisk | undefined;
+
+  /** The one-card decision: verdict, approach, window, conditions, risk band. */
+  getDecision(marketId: string, weights: RubricWeights): Decision | undefined;
+
+  /** Sequence under every named preset, and how stable each market's position is. */
+  getRobustness(): RobustnessReport;
+
+  /** Screening score a user-entered market must reach (at base weights) to be treated as cleared. */
+  getClearThreshold(): number;
+
+  /** A new engine over the same data plus extra (user-entered) markets. The base engine is untouched. */
+  withMarkets(extra: Market[]): MarketEntryEngine;
+
+  /** Derive adaptation_cost / execution_dependency from countable entry facts (the formula the sequence is built on). */
+  deriveSequencingInputs(facts: EntryFacts): { adaptationCost: number; executionDependency: number; adaptationFormula: string; executionFormula: string };
 }

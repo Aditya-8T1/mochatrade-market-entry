@@ -22,6 +22,15 @@ export class InvalidWeightsError extends Error {
   }
 }
 
+/**
+ * One-decimal display with half-up rounding. `(2.05).toFixed(1)` is "2.0" in
+ * JavaScript (binary floating point), which made South Africa show 2.0 against
+ * the deck's 2.1. Every screening score shown to the user goes through this.
+ */
+export function formatScore(value: number): string {
+  return (Math.round((value + 1e-9) * 10) / 10).toFixed(1);
+}
+
 export function round(value: number, dp = 4): number {
   const f = 10 ** dp;
   return Math.round((value + Number.EPSILON) * f) / f;

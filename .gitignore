@@ -145,3 +145,8 @@ vite.config.ts.timestamp-*
 # Windows
 Thumbs.db
 desktop.ini
+
+# Public-data screen inputs (generated JSON is committed instead)
+data/public/*.csv
+
+.vercel

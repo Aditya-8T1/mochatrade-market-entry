@@ -1,0 +1,12 @@
+Country,ISO3,Legal Status,Tax rules,AML/CFT rules,Consumer protection rules,Licensing rules,Notes
+Kenya,KEN,Legal,Yes,Yes,No,Yes,"fixture, not real data"
+Mexico,MEX,Legal,Yes,Yes,Yes,Yes,"fixture, not real data"
+Argentina,ARG,Legal,Yes,No,No,No,"fixture, not real data"
+Türkiye,TUR,Partial ban,No,Yes,No,No,"fixture, not real data"
+Bolivia,,General ban,No,No,No,No,"fixture, no ISO3 -> name join"
+Singapore,SGP,Legal,Yes,Yes,Yes,Yes,"fixture, not real data"
+Brazil,BRA,Legal,Yes,Yes,Yes,Yes,"Round 1 market -> must be excluded"
+Dubai (UAE),,Legal,Yes,Yes,Yes,Yes,"Round 1 market by name -> must be excluded"
+Atlantis,ATL,Legal,Yes,Yes,Yes,Yes,"no Chinn-Ito row -> unmatched"
+Taiwan,TWN,Legal,Yes,Yes,No,Yes,"fixture; no Chinn-Ito row -> tracker-only prefill"
+Chile,CHL,Under consultation,No,No,No,No,"unreadable legal status -> dropped"
