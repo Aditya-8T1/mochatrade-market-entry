@@ -1,0 +1,511 @@
+{
+  "_meta": {
+    "purpose": "Plain-language 'Why not now' for every market with a Do-not-enter verdict, written strictly against the five rubric dimensions (market_opportunity, legality, licence, fx_custody, clarity). Nothing outside the rubric is scored or argued.",
+    "basis": "Round 2 research workbook (data/round2-research.json) re-checked against primary/secondary web sources on 2026-09-25. Dimension notes explain the score the team gave; they do not change any score.",
+    "checked": "2026-09-25"
+  },
+  "markets": {
+    "philippines": {
+      "summary": "Real demand, but no lawful way in: the BSP has frozen new virtual-asset licences and the SEC's crypto-asset rules are silent on derivatives, so there is no route for a retail perpetuals product today.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "No derivatives permission or retail leverage cap exists in the SEC CASP rules (MC 4 & 5, May 2025); unlicensed foreign platforms are actively blocked (SEC advisory, Aug 2025). A perpetuals product has no defensible legal basis."
+        },
+        {
+          "key": "licence",
+          "note": "BSP moratorium on new VASP licences (only the existing five stay authorised); the SEC route needs PHP100M (~US$1.7M) paid-up capital, a local entity, physical office and data centre."
+        },
+        {
+          "key": "fx_custody",
+          "note": "InstaPay/PESONet are reachable only through BSP-supervised banks or e-money issuers; a BSP draft (Sep 2026) would freeze new payment-operator applications for 12 months and class VASPs as high-risk merchants."
+        },
+        {
+          "key": "clarity",
+          "note": "Two regulators (BSP for VASPs, SEC for CASPs) with a moratorium on one side and derivative-silent rules on the other: no usable filing path for MochaTrade's product."
+        }
+      ],
+      "what_would_change": "BSP lifts the VASP moratorium, or the SEC CASP rules expressly cover derivatives and retail leverage."
+    },
+    "nigeria": {
+      "summary": "A large, crypto-active market whose rules are still a draft: the SEC's digital-asset regulations were published for comment in August 2026 and are not in force, so nothing can be filed against them yet.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "Digital assets are securities under the Investments & Securities Act 2025, but the operating rules (SEC draft, 20 Aug 2026) are not in force; perpetuals are neither permitted nor banned, and no leverage cap exists."
+        },
+        {
+          "key": "fx_custody",
+          "note": "NIP/NIBSS rails are open to banks and licensed PSPs only, so a foreign operator needs a licensed partner; draft cross-border rules add a 0.35% SEC fee on foreign purchases and a NGN10M/year retail cap on offering platforms."
+        },
+        {
+          "key": "clarity",
+          "note": "Draft rules require NGN2bn (~US$1.5M) capital for exchanges plus a fidelity bond ≥25% of capital and a resident CEO; until gazetted there is no path a legal team can file against."
+        }
+      ],
+      "what_would_change": "The SEC digital-asset rules are gazetted with a clear treatment of derivatives, and a licensed payment partner is confirmed."
+    },
+    "pakistan": {
+      "summary": "The regime exists on paper (Virtual Assets Act 2026, PVARA) but is brand new and untested, demands a Pakistan-registered company with PKR500M capital for derivatives, and the rupee-only rails add FX friction on every leg.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "The Act (4 Mar 2026) covers virtual assets, but the PVARA Virtual Asset Services Regulations 2026 were still in consultation; no licence for a derivatives platform has yet been issued."
+        },
+        {
+          "key": "licence",
+          "note": "Derivatives and exchange licences need PKR500M (~US$1.8M) paid-up capital, a Pakistan-registered company (Track B) and a 1.2× monthly-opex liquidity floor; the transitional-operator deadline (5 Sep 2026) has passed."
+        },
+        {
+          "key": "fx_custody",
+          "note": "Only PVARA-licensed VASPs may hold bank and client-money accounts (SBP Circular 10 of 2026); Raast is rupee-only, and SBP outward-remittance limits block any US-equities route."
+        },
+        {
+          "key": "clarity",
+          "note": "Licensing opened only in 2026 and the first cohort is still being processed, so timelines, conditions and derivative treatment are unproven."
+        }
+      ],
+      "what_would_change": "PVARA issues its first derivatives licences and publishes final Virtual Asset Services Regulations that name a treatment for perpetuals."
+    },
+    "thailand": {
+      "summary": "Thailand is moving in the right direction, but the access route MochaTrade needs is an SEC proposal (consultation closed 30 Sep 2026) rather than a rule, and every licence category requires a Thai company.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "The SEC recognised crypto as a derivatives underlying in Mar 2026, but perpetual eligibility depends on final rules that do not yet exist; direct use of offshore exchanges remains unlawful."
+        },
+        {
+          "key": "licence",
+          "note": "Exchange THB50M (~US$1.5M), broker/dealer THB25M, all via a Thai limited/public company; derivatives-licence capital and foreign-ownership limits could not be found."
+        },
+        {
+          "key": "fx_custody",
+          "note": "PromptPay and Thai bank transfers are reachable only through a licensed Thai bank or e-wallet partner."
+        },
+        {
+          "key": "clarity",
+          "note": "A proposal is not a rule: no implementation date has been announced for the 31 Aug 2026 consultation."
+        }
+      ],
+      "what_would_change": "The SEC publishes final rules from the 2026 consultation with a defined perpetuals/leverage regime and capital figure."
+    },
+    "south_africa": {
+      "summary": "Rules exist, but the product would need two licences (FSP plus ODP, not just CASP) and a draft Capital Flow Management Regulation would block self-custody transfers outright, giving the lowest FX/custody score on the board.",
+      "dimensions": [
+        {
+          "key": "market_opportunity",
+          "note": "Smaller addressable base than the shortlist markets, and instant EFT/PayShap access still routes through a bank or PSP participant."
+        },
+        {
+          "key": "legality",
+          "note": "Crypto derivatives are securities under the Financial Markets Act, so a perpetuals product needs FSP and ODP authorisation on top of CASP registration; no retail leverage cap has been published."
+        },
+        {
+          "key": "fx_custody",
+          "note": "Draft Capital Flow Management Regulations (gazetted 17 Apr 2026) would require crypto transfers above thresholds to pass through a Treasury-authorised CASP, with penalties up to R1M or five years: self-custody inflows would be blocked."
+        },
+        {
+          "key": "clarity",
+          "note": "The ODP capital requirement is 'six months' opex' with only vendor estimates (ZAR5–15M) of what that means; the exchange-control draft is not final."
+        }
+      ],
+      "what_would_change": "The Capital Flow Management Regulations are finalised without the self-custody block, and the ODP capital figure is confirmed."
+    },
+    "vietnam": {
+      "summary": "Fourth in the world for crypto adoption, but the five-year pilot (Resolution 05/2025) demands ~US$380M charter capital, caps foreign ownership at 49%, settles in VND only and covers spot trading alone: legality and licence both fail.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "Only spot crypto is permitted inside the pilot; no permission for perpetuals, derivatives or a US-equities route exists, and a penalty decree for unlicensed operations took effect 1 Sep 2026."
+        },
+        {
+          "key": "licence",
+          "note": "Minimum charter capital VND10 trillion (~US$380M) with a 49% foreign-ownership cap; as of Sep 2026 seven applicants, none licensed. A foreign firm cannot enter standalone."
+        },
+        {
+          "key": "fx_custody",
+          "note": "VND-only settlement; the SBV bars financial institutions from crypto payments, and Vietnam is on the FATF grey list (Jun 2026)."
+        },
+        {
+          "key": "clarity",
+          "note": "A pilot with no licences issued and no derivatives provisions is not a filing path."
+        }
+      ],
+      "what_would_change": "The pilot issues its first licences and is extended to derivatives at a capital level a minority partner could reach."
+    },
+    "mexico": {
+      "summary": "Large market and open capital account, but the highest legal uncertainty of any market at its score: there is no crypto-exchange licence, banks and fintech institutions are barred from offering crypto (Banxico Circular 4/2019), and nothing addresses perpetuals or leverage.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "Exchanges operate as non-financial entities under AML registration only; Ley Fintech Art. 30 and Banxico 4/2019 bar banks and ITFs from offering crypto to clients, so a licensed route for retail perpetuals does not exist."
+        },
+        {
+          "key": "licence",
+          "note": "No dedicated licence and no published capital figure; the CNBV's substance-over-form view means a foreign platform taking pesos would still be treated as requiring authorisation."
+        },
+        {
+          "key": "clarity",
+          "note": "The Banxico/CNBV primary texts were not opened in Round 2 and counsel has not confirmed a route; the verdict is conditional on that confirmation."
+        }
+      ],
+      "what_would_change": "Counsel confirms a lawful route for a retail derivatives product, or Mexico enacts a crypto-asset licence that covers it."
+    },
+    "uruguay": {
+      "summary": "A clean new PSAV regime from the central bank, but a market of ~3.4M people with an untested licence that does not address perpetuals: it clears on regulation and fails on size.",
+      "dimensions": [
+        {
+          "key": "market_opportunity",
+          "note": "Population ~3.4M; the addressable base cannot justify the local-entity build the licence requires."
+        },
+        {
+          "key": "legality",
+          "note": "BCU Circular 2507 covers exchange, custody and transfers; perpetuals and leverage are not addressed, so the derivatives route is unconfirmed."
+        },
+        {
+          "key": "licence",
+          "note": "Custody minimum equity UI1,000,000 (~US$164–190k) plus UI600,000 guarantee deposit, local entity or branch; applications only opened 1 Sep 2026 with full compliance by 30 Jun 2027."
+        },
+        {
+          "key": "clarity",
+          "note": "Regime untested (no licences yet); the BCU source page could not be opened to verify dates."
+        }
+      ],
+      "what_would_change": "Nothing regulatory: the market is too small for this plan. Revisit only as a regional entity hub."
+    },
+    "mauritius": {
+      "summary": "One of the clearest licensing regimes on the list (FSC VAITOS Act 2021: Class S exchange ~US$143k, local office, two resident directors), but a population of ~1.3M makes it a licensing base, not a user market: market opportunity scores 1/5 and pulls it under the threshold.",
+      "dimensions": [
+        {
+          "key": "market_opportunity",
+          "note": "~1.3M people; there is no retail base to launch to. It is scored as a hub jurisdiction."
+        },
+        {
+          "key": "legality",
+          "note": "No FSC leverage cap; how retail perpetuals and non-resident retail clients are treated is unclear."
+        }
+      ],
+      "what_would_change": "Nothing regulatory; consider only if the plan later needs a licensed entity hub."
+    },
+    "panama": {
+      "summary": "It scores above 2.5 only because there is no licence burden at all: no VASP licence exists (Draft Law 314 is still in committee), the securities regulator says licensed brokers cannot offer crypto, and perpetuals are a grey zone.",
+      "dimensions": [
+        {
+          "key": "market_opportunity",
+          "note": "Small addressable base and no verified local payment rail."
+        },
+        {
+          "key": "legality",
+          "note": "SMV Opinion 7-2018 bars licensed brokers from offering crypto; no derivatives rules or leverage cap; a perpetuals product would rest on the absence of law, not on permission."
+        },
+        {
+          "key": "clarity",
+          "note": "No VASP licence exists; Draft Law 314 (filed 13 Jan 2026) is still in committee, so there is nothing to file against."
+        }
+      ],
+      "what_would_change": "Draft Law 314 is enacted with a VASP licence that covers derivatives."
+    },
+    "georgia": {
+      "summary": "Cheap, fast VASP registration with the National Bank, but a ~3.7M population, restricted crypto payments and a banking bottleneck make it an entity hub rather than a user market.",
+      "dimensions": [
+        {
+          "key": "market_opportunity",
+          "note": "~3.7M people; local rail unverified and banking access is described as the bottleneck for VASPs."
+        },
+        {
+          "key": "legality",
+          "note": "No derivatives or leverage provisions; VA lending prohibited and VA payments restricted."
+        },
+        {
+          "key": "clarity",
+          "note": "Registration is clear (GEL100k for a JSC, officer in Georgia ≥14 days/month), but nothing says whether a perpetuals product is inside it."
+        }
+      ],
+      "what_would_change": "Nothing regulatory; revisit only as a hub."
+    },
+    "argentina": {
+      "summary": "Big, crypto-hungry market with a working PSAV registry, but two rubric failures: nobody can say whether perpetuals need a separate CNV derivatives authorisation, and company-level FX controls (the 'cepo') still constrain moving money in and out.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "RG 1058/2025 is silent on derivatives and leverage; perpetuals may fall under the wider capital-markets regime, which would require a different authorisation. Until counsel answers this, there is no defensible route."
+        },
+        {
+          "key": "licence",
+          "note": "PSAV net worth US$150k (exchange/custody), local SA/SRL or branch, 5–8 months: manageable, but only for the activities the registry covers."
+        },
+        {
+          "key": "fx_custody",
+          "note": "Corporate FX controls persist (BCRA, May 2026), so repatriation and settlement carry control risk."
+        }
+      ],
+      "what_would_change": "CNV confirms that crypto perpetuals sit inside the PSAV registry (or names the authorisation they need), and corporate FX controls are lifted."
+    },
+    "chile": {
+      "summary": "The Fintec Law and CMF NCG 502 cover exchange, custody and advice, but whether crypto derivatives are regulated instruments is unconfirmed, the capital figure could not be found, and the CMF has warned against unregistered platforms.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "No retail perpetuals or leverage rules; the CMF warned on unregistered platforms (5 Aug 2025). Whether a perpetual is a regulated instrument, and under which regime, is the open question."
+        },
+        {
+          "key": "licence",
+          "note": "Registration under NCG 502 is known; the capital amount for MochaTrade's activity was not found."
+        },
+        {
+          "key": "fx_custody",
+          "note": "Local transfers and open banking are reachable, but foreign-operator access has limited evidence."
+        }
+      ],
+      "what_would_change": "CMF confirms the instrument classification of crypto perpetuals and the capital tier that applies."
+    },
+    "costa_rica": {
+      "summary": "The May 2026 law is AML-only: it registers VASPs with Sugef but says nothing about derivatives, and its implementing regulations are still pending, so there is no usable licensing path yet.",
+      "dimensions": [
+        {
+          "key": "market_opportunity",
+          "note": "Small base; SINPE Móvil is reachable only through a licensed bank or partner."
+        },
+        {
+          "key": "legality",
+          "note": "Decree 10961 amends the AML law (7786) only; derivatives and leverage are not addressed and no US-equities route was found."
+        },
+        {
+          "key": "clarity",
+          "note": "In force around 19 Sep 2026 (unconfirmed) with up to three further months for regulations; no capital figure has been published."
+        }
+      ],
+      "what_would_change": "Sugef publishes the implementing regulations and they say something about derivatives."
+    },
+    "ghana": {
+      "summary": "A VASP Act exists (Act 1154, Dec 2025) but no licence has been issued: a six-firm sandbox runs until early 2027 and operations are targeted for 2027, so there is no lawful route today.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "The Act does not address derivatives; until licensing opens, any operation is unlicensed."
+        },
+        {
+          "key": "licence",
+          "note": "Ghana company with three directors (one resident, one independent); SEC for exchanges, BoG for custody and payments; capital not yet published."
+        },
+        {
+          "key": "clarity",
+          "note": "Rules still being drafted; licensing decisions promised within 90 days once the window opens, but it has not opened."
+        }
+      ],
+      "what_would_change": "The licensing window opens after the sandbox, with published capital and a derivatives position."
+    },
+    "colombia": {
+      "summary": "No licence regime exists: the government's bill has been drafted but not submitted, so there is no lawful path today and the lowest clarity score on the list.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "No legal basis for an exchange, let alone perpetuals; a claimed 'Decree 1297 (2023)' registry could not be confirmed."
+        },
+        {
+          "key": "licence",
+          "note": "Nothing to apply for; the draft would create an SFC-supervised entity type with unknown capital."
+        },
+        {
+          "key": "clarity",
+          "note": "Bill drafted, not submitted (Feb 2026); DIAN reporting of crypto transactions above US$50k is the only rule in force."
+        }
+      ],
+      "what_would_change": "The bill is submitted and passed with a licence category MochaTrade's product fits."
+    },
+    "malaysia": {
+      "summary": "A mature SC regime, but it points the wrong way for this product: the SC's Jan 2026 clarification bars CMSL holders from margin and lending and requires cash-upfront broking, so there is no lawful retail-perpetuals route.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "No lawful retail-perps route; margin, lending and leverage are barred for licensed holders (SC clarification, 30 Jan 2026)."
+        },
+        {
+          "key": "licence",
+          "note": "SC-recognised DAX needs RM5M (~US$1.1M) paid-up capital, with a proposal to raise it to RM15M; local company required."
+        },
+        {
+          "key": "market_opportunity",
+          "note": "Cleared 16th by a hair on score; the product change needed (spot-only, cash upfront) removes the core of MochaTrade's offer."
+        }
+      ],
+      "what_would_change": "The SC permits leveraged or derivative crypto products for retail under a defined regime."
+    },
+    "turkey": {
+      "summary": "Big market, but the law is explicit: since Law 7518 and the SPK communiqués (13 Mar 2025), listed crypto assets cannot be traded with leverage, derivatives, margin or short selling on Turkish platforms, and foreign platforms targeting Turkey had to stop by Oct 2024. Legality scores 1.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "Leveraged trading, derivative contracts, margin and short selling in listed crypto assets are prohibited (Communiqué III-35/B.1); the SPK blocks offshore leveraged services. MochaTrade's core product is unlawful."
+        },
+        {
+          "key": "licence",
+          "note": "Exchange TRY150M, custody TRY500M paid-in capital, 95% of client assets with an authorised custodian; final operating licences were still not issued as of mid-2026."
+        },
+        {
+          "key": "fx_custody",
+          "note": "Crypto cannot be used as a means of payment; payment and e-money institutions may not intermediate certain transfers to crypto platforms."
+        }
+      ],
+      "what_would_change": "The SPK reverses the derivatives prohibition. Nothing short of that opens the market."
+    },
+    "oman": {
+      "summary": "Oman has AML registration for VASPs (FSA Decision E/35/2023) but no licensing framework: the Virtual Assets Regulatory Framework announced in 2023 was still in consultation in 2025, and the central bank has licensed no crypto entity.",
+      "dimensions": [
+        {
+          "key": "market_opportunity",
+          "note": "Small population; rail access unverified."
+        },
+        {
+          "key": "legality",
+          "note": "Registration is for AML/CFT only; there is no permission regime for exchange or derivatives, and the CBO says anyone dealing in crypto does so at their own risk."
+        },
+        {
+          "key": "licence",
+          "note": "No licence categories, fees or capital exist yet; the framework is a consultation paper."
+        },
+        {
+          "key": "clarity",
+          "note": "Framework 'in development' since Feb 2023 with no enacted text."
+        }
+      ],
+      "what_would_change": "The FSA enacts the Virtual Assets Regulatory Framework with a VASP licence that covers derivatives."
+    },
+    "ukraine": {
+      "summary": "Draft Law 10225-d (MiCA-aligned) passed first reading on 3 Sep 2025 and was being prepared for second reading through 2026, but nothing is enacted: no licence, no tax rules in force, and martial-law currency restrictions on top.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "No enacted virtual-assets regime; the draft restricts crypto as a means of payment and its final shape (many changes expected before second reading) is unknown."
+        },
+        {
+          "key": "licence",
+          "note": "The draft would require providers to register with tax authorities within 60 days and meet MiCA-style requirements; none of it is law."
+        },
+        {
+          "key": "fx_custody",
+          "note": "Wartime currency controls under the Law on Currency and Currency Transactions constrain cross-border flows."
+        },
+        {
+          "key": "clarity",
+          "note": "First reading only; no implementation date."
+        }
+      ],
+      "what_would_change": "10225-d passes second reading and is signed, with a licence category that covers derivatives."
+    },
+    "saudi_arabia": {
+      "summary": "Neither banned nor regulated: the 2018 Standing Committee declared virtual currencies unauthorised, SAMA still warns the public, and the CMA's digital-asset work covers tokenised securities, not a crypto-exchange or derivatives licence. Licence scores 1.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "No law permits a crypto exchange; operating one without authorisation is treated as unauthorised securities activity. Derivatives are not contemplated."
+        },
+        {
+          "key": "licence",
+          "note": "There is no licence to apply for; the CMA sandbox is for tokenised securities and averages 14 months to a licence."
+        },
+        {
+          "key": "clarity",
+          "note": "A framework is 'rumoured' or 'in development'; nothing has been published for crypto service providers."
+        }
+      ],
+      "what_would_change": "SAMA/CMA publish a crypto service-provider licensing framework."
+    },
+    "sri_lanka": {
+      "summary": "Cabinet approved drafting a VASP law on 28 Jul 2026 and named the SEC as future regulator, but the government is explicit that crypto stays outside the regulated system: no exchange is authorised, and banks and cards cannot be used for crypto.",
+      "dimensions": [
+        {
+          "key": "market_opportunity",
+          "note": "Activity is pushed into P2P and offshore channels since the 2021 CBSL card ban; no reliable volume data exists."
+        },
+        {
+          "key": "legality",
+          "note": "Crypto is not regulated as an asset class or financial instrument and no platform is authorised; derivatives are not mentioned anywhere in the roadmap."
+        },
+        {
+          "key": "licence",
+          "note": "Nothing to apply for; the first step is AML registration with the FIU via FTRA amendments, with a prudential regime to follow later."
+        },
+        {
+          "key": "fx_custody",
+          "note": "Banks may not process crypto card or direct transactions (CBSL, Mar 2021)."
+        },
+        {
+          "key": "clarity",
+          "note": "Drafting approved, not enacted; timeline unknown."
+        }
+      ],
+      "what_would_change": "The SEC-led VASP law is enacted and the CBSL lifts the banking restriction."
+    },
+    "morocco": {
+      "summary": "The 2017 joint ban (Office des Changes, Bank Al-Maghrib, AMMC) is still in effect: crypto transactions breach exchange regulations. Draft Bill 42.25 (Nov 2025) would change that but has no parliamentary date.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "Transactions in virtual currencies are an infringement of exchange regulations liable to penalties; nothing has been repealed."
+        },
+        {
+          "key": "licence",
+          "note": "No licence exists; Bill 42.25 would create CASP registration with AMMC/BAM supervision, but it is a draft."
+        },
+        {
+          "key": "fx_custody",
+          "note": "The ban is grounded in foreign-exchange control: crypto is treated as a route around the dirham's capital controls."
+        },
+        {
+          "key": "clarity",
+          "note": "Bill under review with 'no firmer date for parliamentary submission' (BAM, Jul 2026)."
+        }
+      ],
+      "what_would_change": "Bill 42.25 is enacted and the Office des Changes withdraws the 2017 position."
+    },
+    "bangladesh": {
+      "summary": "Effectively prohibited: Bangladesh Bank treats crypto as a foreign-exchange transaction in breach of the FER Act 1947 and has warned repeatedly (latest notices 2025) that facilitating it risks licence revocation and prosecution. Every regulatory dimension scores 1.",
+      "dimensions": [
+        {
+          "key": "legality",
+          "note": "Crypto transactions are treated as contraventions of the Foreign Exchange Regulation Act 1947, the Money Laundering Prevention Act 2012 and the Anti-Terrorism Act 2009."
+        },
+        {
+          "key": "licence",
+          "note": "No licensing authority or category exists."
+        },
+        {
+          "key": "fx_custody",
+          "note": "Buying crypto with foreign exchange is expressly prohibited; banks are instructed to close accounts involved in it."
+        },
+        {
+          "key": "clarity",
+          "note": "Bangladesh Bank has said it will not relax the position until its own regulatory infrastructure is stronger."
+        }
+      ],
+      "what_would_change": "Bangladesh Bank withdraws the prohibition and a licensing regime is created."
+    },
+    "egypt": {
+      "summary": "Illegal without a Central Bank of Egypt licence, and none has been granted: Article 206 of Law 194/2020 bans issuing, trading, promoting or operating a crypto platform, with imprisonment and fines up to EGP10M. Every regulatory dimension scores 1.",
+      "dimensions": [
+        {
+          "key": "market_opportunity",
+          "note": "Estimated ~3M holders, all offshore or P2P; no lawful rail."
+        },
+        {
+          "key": "legality",
+          "note": "Article 206 prohibits trading and platform operation without CBE approval; the CBE reiterated in 2025 that no licences exist and participation is criminal."
+        },
+        {
+          "key": "licence",
+          "note": "A CBE licence is theoretically possible under the law; none has ever been issued and no procedure is published."
+        },
+        {
+          "key": "fx_custody",
+          "note": "Crypto is treated as a capital-flight risk to the pound; banks may not process it."
+        },
+        {
+          "key": "clarity",
+          "note": "No procedure, no timetable."
+        }
+      ],
+      "what_would_change": "The CBE publishes a licensing procedure and issues a first licence."
+    }
+  }
+}

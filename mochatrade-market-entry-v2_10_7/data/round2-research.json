@@ -1,0 +1,1067 @@
+{
+  "_meta": {
+    "title": "Round 2 market research (MochaTrade Track 1)",
+    "source": "data/source/MochaTrade_market_data_research.xlsx",
+    "imported": "2026-09-25",
+    "importer": "scripts/import-round2-research.py",
+    "evidence_tags": {
+      "[V]": "verified against a primary source (regulator, FATF, statute)",
+      "[V-secondary]": "verified via a law-firm, news or other secondary source",
+      "[V-draft]": "verified, but the rule is a draft / not in force",
+      "[A]": "assumption or limited evidence -- confirm before relying on it",
+      "[D]": "derived by the researcher from the facts cited"
+    },
+    "scoring": "Scores use the Round 1 rubric (25/25/20/15/15). 'screening_score_sheet' is the workbook's printed total; the engine recomputes it and a test checks they agree.",
+    "clearing": "A market clears at base weights when score >= the 3.0 threshold AND it passes the regulatory knock-out (legality > 2 and licence > 1). Computed by the engine, not stored.",
+    "sequencing": "Round 2 markets are NOT sequenced: the workbook has no entry route, timing window or go-gates. Cleared ones get the 'shortlist' verdict; researched adaptation / execution are shown and used only for an indicative priority comparison against the Round 1 plan.",
+    "round1_notes": "Round 1 markets keep their deck scores and text verbatim. Research notes and 'deck_check' refinements are shown alongside, never substituted."
+  },
+  "round1_notes": {
+    "philippines": {
+      "adaptation_cost": 4,
+      "adaptation_rationale": "[D] No evidence of a licensed retail-perpetuals route; likely spot/structured or local-exchange product; local office + local data centre required.",
+      "execution_dependency": 5,
+      "execution_rationale": "[D] BSP VASP licences frozen (moratorium indefinite since 2025); SEC CASP route needs a Philippine entity -> partner-led via a licensed VASP/bank is the practical route.",
+      "payment_rail": "InstaPay/PESONet (PCHC), GCash/Maya wallets [A - LIMITED EVIDENCE]. Access only via BSP-supervised banks/EMIs. BSP draft (7 Sep 2026) would freeze new payment-operator applications for 12 months and treat VASPs as 'high-risk merchants' [V - draft, news-reported].",
+      "capital_and_licensing": "SEC MC No.4 & 5 (30 May 2025): PHP100M paid-up (~US$1.7M at ~PHP58/USD, [D]); PHP50k filing fee; physical office; data centre; client-asset segregation [V-secondary]. BSP VASP moratorium on new licences [V-secondary]; 5 licensed VASPs stay authorised. Standalone possible only via SEC route + local entity.",
+      "kyc_aml": "BSP Circular 1108 travel rule above PHP50,000 [V-secondary]. Not on FATF grey list (Jun 2026) [V]. PhilSys ID [A].",
+      "product_changes": "No retail leverage cap or derivatives permission found [A]; SEC CASP rules silent on derivatives. Unlicensed foreign platforms blocked (SEC advisory Aug 2025: OKX, Bybit, KuCoin etc.). US equities: SEC broker/dealer licence likely [A].",
+      "regulatory_basis": "SEC MC 04/05-2025; BSP Circular 1108; BSP moratorium release; BSP 7 Sep 2026 draft",
+      "sources": [
+        "https://fintechnews.ph/67175/crypto/sec-philippines-crypto-asset-service-provider-casps-rules/",
+        "https://coingeek.com/bsp-extends-ban-on-new-crypto-licenses-in-philippines/",
+        "https://cryptoslate.com/crypto-laws/philippines-bsp-circular-1108-vasp-guidelines/",
+        "https://www.cryptotimes.io/2026/09/07/philippines-groups-crypto-firms-with-casinos-freezes-new-payment-licenses-for-a-year/",
+        "https://www.fatf-gafi.org/en/publications/Fatfgeneral/outcomes-fatf-plenary-june-2026.html"
+      ],
+      "deck_check": "Consistent with deck. Refinement: BSP moratorium is indefinite (start date varies Sep 2022/Aug-Sep 2025 by source); the 7 Sep 2026 BSP item is a separate payments draft."
+    },
+    "nigeria": {
+      "adaptation_cost": 4,
+      "adaptation_rationale": "[D] Draft is silent on derivatives/margin/leverage; retail caps + suitability apply; perpetuals would need explicit SEC approval.",
+      "execution_dependency": 4,
+      "execution_rationale": "[D] Local entity + Nigeria-resident CEO (unless exempted); rules still draft -> local partner advisable.",
+      "payment_rail": "NIP (NIBSS) / bank transfer [A - LIMITED EVIDENCE]; open to banks and licensed PSPs only, so a foreign operator needs a licensed partner.",
+      "capital_and_licensing": "SEC draft 'Digital and Virtual Assets Operations, Custody and Markets' rules (published 20 Aug 2026; comments closed 3 Sep 2026; NOT in force) [V-secondary]: exchanges/custodians NGN2bn (~US$1.5M), platform operators NGN500M, VASPs NGN200M; registration NGN30M (VASP NGN15M); fidelity bond >=25% of capital. Basis: Investments & Securities Act 2025 (digital assets = securities). Draft SEC cross-border trading rules (2 Jul 2026): NGN2bn net liquid capital, SEC 'no objection', IOSCO-member foreign brokers [V-draft]. Virtual Assets Coordination Executive Order signed 17 Jul 2026 [V-secondary]. Final SEC rules not found.",
+      "kyc_aml": "Not on FATF grey list [V]. NIN/BVN/TIN ID basis [A]; travel-rule text not found.",
+      "product_changes": "Perpetuals neither permitted nor banned in draft; no leverage cap found [A]. Retail limits NGN1M per issuer / NGN10M per year for offering platforms; suitability + consent flows. US equities: only via SEC-registered brokers under draft cross-border rules (0.35% SEC fee on foreign purchases).",
+      "sources": [
+        "https://www.riotimesonline.com/nigeria-sec-crypto-rules-capital-residency-2026/",
+        "https://www.legit.ng/business-economy/technology/1726800-sec-proposes-n30m-crypto-registration-fee-n2bn-capital-requirement-exchanges/",
+        "https://cryptoslate.com/crypto-laws/nigeria-investments-securities-act-2025-virtual-digital-assets/",
+        "https://www.mondaq.com/nigeria/financial-services/1823482/nigerias-financial-markets-reform-the-virtual-assets-coordination-executive-order-2026-and-secs-proposed-cross-border-trading-rules"
+      ],
+      "deck_check": "Consistent with deck. Refinement: NGN2bn applies to exchanges/custodians; VASP tier is NGN200M. Comment window has closed - check for final text."
+    },
+    "pakistan": {
+      "adaptation_cost": 3,
+      "adaptation_rationale": "[D] A 'derivatives' licence class exists, so perpetuals have an explicit category (unique among the three); leverage terms unknown; needs Pakistani company and rupee banking.",
+      "execution_dependency": 4,
+      "execution_rationale": "[D] Pakistan-incorporated company, NOC route, bank partners for client-money accounts, brand-new untested regime.",
+      "payment_rail": "Raast (SBP) likely [A - LIMITED EVIDENCE]. SBP Circular 10 of 2026 (15 Apr 2026) lets banks open accounts incl. client-money accounts for PVARA-licensed VASPs [V-secondary]; unlicensed foreign operators cannot use them.",
+      "capital_and_licensing": "Virtual Assets Act 2026 (Act XIII, enacted 4 Mar 2026) created PVARA [V-secondary]. Min paid-up capital: derivatives PKR500M (~US$1.8M at ~PKR280/USD, [D]), exchange PKR500M, custody PKR200M, broker-dealer PKR75M; liquidity floor 1.2x monthly opex [V-secondary, law-firm]. Track B (NOC) needs Pakistan-registered company; Track A sandbox. Transitional-operator NOC deadline 5 Sep 2026 has passed. Fees/timeline not published.",
+      "kyc_aml": "Act requires CDD, transaction monitoring, SAR filing, sanctions screening [V-secondary]. Not on FATF grey list [V]. CNIC/NADRA, travel rule, FMU reporting [A].",
+      "product_changes": "No leverage cap or retail restriction found; PVARA Virtual Asset Services Regulations 2026 consultation not read [A]. Tokenised/US stocks: SBP outward-remittance limits are the barrier; not regulated by SECP/PSX per local sources [A].",
+      "sources": [
+        "https://cryptoslate.com/crypto-laws/pakistan-virtual-assets-act-2026-pvara/",
+        "https://www.cryptoverselawyers.io/pvara-licence-costs-capital-requirements/",
+        "https://www.pvara.gov.pk/licensing",
+        "https://www.coindesk.com/policy/2026/04/15/pakistan-lifts-seven-year-ban-allowing-banks-to-service-virtual-asset-providers",
+        "https://www.nation.com.pk/23-Aug-2026/pvara-launches-virtual-asset-licensing-regime"
+      ],
+      "deck_check": "Deck says 'licensing opened Aug 2026'; framework actually began Mar-Apr 2026 (Act, SBP Circular 10) with NOC portal ~Aug 2026. 'Rupee-only accounts' not found in sources reviewed - confirm before citing. Deck could add derivatives licence class + PKR500M."
+    },
+    "thailand": {
+      "adaptation_cost": 4,
+      "adaptation_rationale": "[D] Retail access only to foreign products that mirror Thai-permitted derivatives (underlying, leverage, maturity, settlement, CCP-cleared); non-CCP crypto perpetuals likely do not qualify; non-conforming products institutional-only.",
+      "execution_dependency": 4,
+      "execution_rationale": "[D] Access only via licensed Thai intermediaries; foreign app cannot offer directly; final rules not issued.",
+      "payment_rail": "PromptPay (BOT) / Thai bank transfers [A - LIMITED EVIDENCE]; in practice via licensed Thai bank/e-wallet partner.",
+      "capital_and_licensing": "SEC digital-asset licences need a Thai limited/public company: exchange THB50M (~US$1.5M at ~THB33/USD, [D]), broker/dealer THB25M, DEX THB10M [V-secondary]. Derivatives-licence capital and foreign-ownership limits NOT found. SEC proposal announced 31 Aug 2026, consultation closes 30 Sep 2026, no implementation date [V-news]; SEC recognised crypto as derivatives underlying Mar 2026.",
+      "kyc_aml": "Not on FATF grey list [V]. Thai ID/AMLO reporting/travel rule [A - not verified].",
+      "product_changes": "Perpetual eligibility depends on final rules; no leverage cap published (tied to TFEX specs) [A]. Does not legalise direct use of offshore exchanges. US equities: via Thai licensed brokers; foreign platform would need Thai licence [A].",
+      "sources": [
+        "https://cointelegraph.com/news/thailand-sec-retail-overseas-crypto-derivatives",
+        "https://forklog.com/en/thailands-sec-proposes-retail-access-to-foreign-crypto-derivatives/",
+        "https://crypto.news/thailand-sec-seeks-rules-for-retail-crypto-derivatives/",
+        "https://silklegal.com/licenses-digital-assets-2/",
+        "https://www.cryptobreaking.com/thailand-broadens-crypto-futures-reach/"
+      ],
+      "deck_check": "Consistent with deck ('proposal only'); consultation closes 30 Sep 2026 - recheck outcome."
+    },
+    "south_africa": {
+      "adaptation_cost": 3,
+      "adaptation_rationale": "[D] Perpetuals already licensable (VALR ODP licence, 20 Oct 2025 covers perpetual futures, CFDs); changes = FSCA licensing, retail disclosures, exchange-control compliance.",
+      "execution_dependency": 4,
+      "execution_rationale": "[D] FSCA FSP/ODP licence via local entity or licensed partner; long timeline (vendor estimate 12-24 months [A]).",
+      "payment_rail": "EFT/instant EFT, PayShap (PayInc) [A - LIMITED EVIDENCE]; bank/PSP participant access; SARB payment reforms still draft.",
+      "capital_and_licensing": "Crypto = financial product (FSCA Notice 1350, 19 Oct 2022); CASP regime since 1 Jun 2023; crypto derivatives are securities under Financial Markets Act -> FSP + ODP licence needed, not just CASP [V-secondary]. ODP: 6 months' opex at all times; advisory estimate ZAR5-15M+ (~US$275-825k) is a vendor estimate, not regulation [A]. Local (Pty) entity, 2 experienced directors.",
+      "kyc_aml": "FICA; FIC travel-rule directive applies to all CASPs [V-secondary]. Exited FATF grey list 24 Oct 2025 [V]. SA ID/FICA documents [A].",
+      "product_changes": "Retail leverage cap not found [A]. Draft Capital Flow Management Regulations (gazetted 17 Apr 2026; comments to 30 Jun 2026; NOT final): crypto transfers above thresholds must go via Treasury-authorised CASP; penalties up to R1m/5 yrs [V-draft]. US equities: FSP licence + exchange-control offshore allowances [A].",
+      "sources": [
+        "https://www.dlapiperafrica.com/en/south-africa/insights/2026/FSCA_Update_on_Licensing_and_Supervision_of_Crypto_Asset_Service_Providers",
+        "https://www.financemagnates.com/forex/valr-secures-fsca-approval-for-crypto-cfds-derivatives-in-south-africa/",
+        "https://www.resbank.co.za/en/home/publications/publication-detail-pages/media-releases/2026/capital-flow-comment",
+        "https://cms.law/en/zaf/legal-updates/draft-capital-flow-management-regulations-2026-crypto-assets",
+        "https://www.zitadelleag.com/services/investment-licensing/south-africa-odp"
+      ],
+      "deck_check": "Deck says '310 CASPs licensed'; best source found says ~300 approved of 512 applications (FSCA, Jan 2026) - verify 310. Draft CFM rule routes flows via authorised CASPs rather than banning self-custody outright - deck wording ('blocks self-custody transfers') is somewhat strong."
+    },
+    "vietnam": {
+      "adaptation_cost": 5,
+      "adaptation_rationale": "[D] VND-only settlement, stablecoins banned, spot-only pilot, INR/UPI funding model cannot work; no evidence derivatives permitted.",
+      "execution_dependency": 5,
+      "execution_rationale": "[D] Foreign holding capped at 49%; >=65% Vietnamese institutions; ~5 licences for whole pilot; none issued.",
+      "payment_rail": "NAPAS 247 / VietQR bank-centred [A - LIMITED EVIDENCE]; SBV bars financial institutions from crypto payments [V-secondary].",
+      "capital_and_licensing": "Resolution 05/2025/NQ-CP (Sep 2025, 5-year pilot): min charter capital VND10 trillion (~US$380M [D]); foreign cap 49%; VND settlement only [V-secondary]. Applications opened 20 Jan 2026 (MoF Decision 96/QD-BTC). As of Sep 2026: 7 applicants, 5 passed initial assessment, NO licence issued [V-news]. Penalty decree for unlicensed operations 1 Sep 2026. Standalone impossible for a foreign firm; minority JV only [D].",
+      "kyc_aml": "Identity checks, monitoring, reporting [V-secondary]; CCCD/VNeID [A]. Vietnam is on FATF grey list (Jun 2026 page) [V].",
+      "product_changes": "Spot crypto only within pilot; no permission for perpetuals/derivatives or US-equity routes found [A].",
+      "sources": [
+        "https://www.russinvecchi.com.vn/publication/vietnams-crypto-asset-regulation-framework-from-gray-zone-to-a-controlled-pilot-market/",
+        "https://cryptorank.io/news/feed/b7225-nine-months-seven-applicants-zero-licences-vietnams-crypto-waiting-game",
+        "https://startupfortune.com/vietnam-opens-crypto-exchange-licensing-under-one-of-asias-strictest-pilot-frameworks/",
+        "https://www.fatf-gafi.org/en/publications/Fatfgeneral/outcomes-fatf-plenary-june-2026.html"
+      ],
+      "deck_check": "Consistent with deck; adds >=65% Vietnamese-institution requirement, no licences issued and FATF grey-list status."
+    }
+  },
+  "markets": [
+    {
+      "id": "el_salvador",
+      "name": "El Salvador",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 2,
+        "legality": 3,
+        "licence": 4,
+        "fx_custody": 5,
+        "clarity": 4
+      },
+      "screening_score_sheet": 3.4,
+      "priority_index_sheet": 1.65,
+      "research": {
+        "adaptation_cost": 2,
+        "adaptation_rationale": "[D] AML/KYT controls + local entity; perps unverified.",
+        "execution_dependency": 3,
+        "execution_rationale": "[D] Local entity + CNAD approval.",
+        "payment_rail": "USD economy + bank transfers; no named retail instant rail [A].",
+        "capital_and_licensing": "CNAD DASP registration under Digital Assets Issuance Law (in force 1 Feb 2024); fee US$5,475; <=20 business days; capital reported ~US$2,000 by one secondary source (low confidence) [A]. Standalone, local company.",
+        "kyc_aml": "KYC/KYT; US$1,000 limit mentioned in Aug 2024 reform proposal - unconfirmed; not on FATF grey list [V].",
+        "product_changes": "Exchange/platform activity permitted; derivatives/leverage/US-equities route unverified [A].",
+        "sources": [
+          "https://cnad.gob.sv/es/registro-publico/proveedores-de-servicio-de-activos-digitales/",
+          "https://cnad.gob.sv/how-to-register/register-as-digital-assets-service-provider-dasp/",
+          "https://practiceguides.chambers.com/practice-guides/blockchain-crypto-assets-2026/el-salvador"
+        ],
+        "flags": "Legality 3 rests on one unconfirmed secondary claim that derivatives are permitted (if scored 2, total 3.15). Tiny market. IMF programme effect unclear."
+      },
+      "deep_dive": {
+        "qualifies_reason": "CNAD DASP registration is fast and low-cost (~US$5,475 fee, ≤20 business days); USD economy removes FX friction; legality 3/5 rests on one unconfirmed secondary claim about derivatives — counsel confirmation is the go-gate.",
+        "crypto_route": "Register as a DASP under the Digital Assets Issuance Law (in force 1 Feb 2024) with CNAD. Exchange/platform activity is permitted; derivatives and leverage require CNAD counsel confirmation before launch.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "No US-equities route found; not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Obtain CNAD counsel sign-off on derivatives/leverage classification; confirm USD bank rail; add spot-only fallback if perpetuals are not permissible under DASP registration",
+        "kyc_aml": "KYC/KYT required; US$1,000 transaction limit mentioned in Aug 2024 reform proposal (unconfirmed). Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "CNAD DASP registration under Digital Assets Issuance Law; one-time fee US$5,475; ≤20 business days; minimum capital reported ~US$2,000 by one secondary source (low confidence). Standalone, local-entity registration.",
+        "commercial_adoption": "Dollarised economy — no FX friction. Chivo wallet adoption is high but Bitcoin usage remains limited; retail demand for US-equity and perps products is unverified.",
+        "local_payment_rail": "USD bank transfers; no named retail instant rail (assumption)",
+        "main_hurdle": "CNAD counsel confirmation that derivatives/perpetuals are permissible under DASP registration"
+      }
+    },
+    {
+      "id": "kazakhstan",
+      "name": "Kazakhstan",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 3,
+        "legality": 3,
+        "licence": 3.5,
+        "fx_custody": 3,
+        "clarity": 3.5
+      },
+      "screening_score_sheet": 3.17,
+      "priority_index_sheet": 1.08,
+      "research": {
+        "adaptation_cost": 3,
+        "adaptation_rationale": "[D] AIFC entity, approved-asset list, appropriateness tests, position limits.",
+        "execution_dependency": 3,
+        "execution_rationale": "[D] AFSA licence + local-bank integration.",
+        "payment_rail": "Only platforms integrated with local banks may operate; named rails unverified [A].",
+        "capital_and_licensing": "AFSA (AIFC) Digital Asset Trading Facility: min US$200k or 12 months' expenses; AIFC entity with substance; ~6-7 months (secondary) [V-secondary]. National Bank regime outside AIFC is a separate route.",
+        "kyc_aml": "Not on FATF grey list (Jun 2026) [V]. ID/travel-rule specifics [A].",
+        "product_changes": "AIFC Rules on Digital Asset Activities (FR00062/2023, amended 1 Jan 2026) contemplate digital-asset derivatives under AFSA approval; retail perps / leverage cap unconfirmed [A]. Law 193-VII amended 16 Jan 2026; framework live 1 May 2026 (secondary). US equities not researched.",
+        "sources": [
+          "https://orderly.myafsa.com/entiresection/a0001000200020010/aifc-rules-on-digital-asset-activities",
+          "https://nationalbank.kz/en/page/digital-assets-legal-framework",
+          "https://b2b.telecom.kz/en/news/business/kazahstan-vvodit-sistemnoe-regulirovanie-tsifrovyh-aktivov-chto-izmenitsya-s-1-maya-2026-goda"
+        ],
+        "flags": "AIFC rules PDF not read directly; approved-coin lists pending; National Bank can restrict coins."
+      },
+      "deep_dive": {
+        "qualifies_reason": "AIFC Digital Asset Trading Facility (AFSA rules FR00062/2023) contemplates digital-asset derivatives and has a defined licensing track. Min US$200k capital. Entry via AIFC entity with local substance.",
+        "crypto_route": "AIFC Digital Asset Trading Facility licence under AFSA (FR00062/2023, amended 1 Jan 2026); digital-asset derivatives contemplated under AFSA approval — retail perps and leverage cap need pre-application meeting to confirm.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "National Bank regime outside AIFC is a separate route; not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Establish AIFC entity with local substance; attend AFSA pre-application meeting to confirm retail perps/leverage cap; confirm payment rail via an AIFC-integrated local bank; KYC/AML aligned to AFSA standards",
+        "kyc_aml": "AIFC AML/CFT rules apply; travel-rule specifics not verified. Not on FATF grey list (Jun 2026).",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "AFSA Digital Asset Trading Facility: min US$200k or 12 months' expenses; AIFC entity with local substance; ~6–7 months from application (secondary estimate). National Bank regime is a separate, unresearched track.",
+        "commercial_adoption": "Growing retail crypto market; only platforms integrated with local banks may operate — named payment rails unverified.",
+        "local_payment_rail": "Only AIFC-integrated bank transfers; named rails not confirmed (assumption)",
+        "main_hurdle": "AFSA pre-application confirmation of retail perps/leverage treatment and payment-rail access"
+      }
+    },
+    {
+      "id": "kenya",
+      "name": "Kenya",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 4,
+        "legality": 2.5,
+        "licence": 3,
+        "fx_custody": 3,
+        "clarity": 3
+      },
+      "screening_score_sheet": 3.12,
+      "priority_index_sheet": 1.03,
+      "research": {
+        "adaptation_cost": 3,
+        "adaptation_rationale": "[D] Licensed exchange/broker wrapper needed; perps unclear -> dated/CMA-style products if disallowed.",
+        "execution_dependency": 3,
+        "execution_rationale": "[D] CMA approval, likely local entity.",
+        "payment_rail": "M-Pesa, PesaLink [A]; reachable via licensed payments partner.",
+        "capital_and_licensing": "VASP Act No.20 of 2025 (commenced 4 Nov 2025); VASP Regulations Legal Notice 134 (gazetted 22 Jul 2026). CMA licenses 7 classes: exchange KES100M (~US$0.77M), wallet KES150M, broker KES10M; CBK licenses stablecoin issuers KES300M [V-secondary]. Existing-operator deadline 4 Nov 2026.",
+        "kyc_aml": "CDD, 7-yr record keeping [V-secondary]. KENYA IS ON FATF GREY LIST (19 Jun 2026) [V-primary] -> banking friction. Travel rule not found.",
+        "product_changes": "Derivatives/margin/leverage not addressed [A]. US equities not researched.",
+        "sources": [
+          "https://tladvocates.com/2026/08/14/unpacking-the-gazetted-virtual-asset-service-providers-regulations-2026/",
+          "https://www.oraro.co.ke/virtual-asset-service-providers-regulations-2026/",
+          "https://www.fatf-gafi.org/en/publications/High-risk-and-other-monitored-jurisdictions/increased-monitoring-june-2026.html"
+        ],
+        "flags": "Sources disagree on which regulator handles wallets; grey-list status could block banking."
+      },
+      "deep_dive": {
+        "qualifies_reason": "VASP Act No.20 of 2025 is live (Regulations gazetted 22 Jul 2026); M-Pesa reach is unmatched; exchange licence KES100M (~US$0.77M). Risk: Kenya is on the FATF grey list as of Jun 2026, adding banking friction.",
+        "crypto_route": "CMA VASP licence under VASP Act No.20 of 2025 and Regulations Legal Notice 134 (gazetted 22 Jul 2026); derivatives and margin not addressed — obtain CMA counsel opinion before launch.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US equities not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Apply for CMA exchange licence (KES100M paid-up); confirm M-Pesa/PesaLink access via licensed payments partner; obtain counsel opinion on derivatives classification; implement enhanced KYC given FATF grey-list status; add 7-year record keeping",
+        "kyc_aml": "VASP Act requires CDD and 7-year record keeping. Kenya is on the FATF grey list (19 Jun 2026) — enhanced due diligence likely required by banking partners. Travel rule not confirmed.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "CMA VASP Act No.20 of 2025 / Regulations LN 134 (Jul 2026): exchange KES100M (~US$0.77M), wallet KES150M, broker KES10M. CBK licences for custody/payments. Local entity required.",
+        "commercial_adoption": "43M+ population; high mobile-money penetration via M-Pesa. FATF grey-list status creates banking friction with correspondent banks.",
+        "local_payment_rail": "M-Pesa, PesaLink — reachable via licensed payments partner (assumption)",
+        "main_hurdle": "CMA counsel opinion on derivatives + FATF grey-list banking friction"
+      }
+    },
+    {
+      "id": "bahrain",
+      "name": "Bahrain",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 2,
+        "legality": 3,
+        "licence": 4,
+        "fx_custody": 4,
+        "clarity": 3
+      },
+      "screening_score_sheet": 3.1,
+      "priority_index_sheet": 1.0,
+      "research": {
+        "adaptation_cost": 3,
+        "adaptation_rationale": "[D] Perps need bespoke CBB approval + retail suitability/appropriateness.",
+        "execution_dependency": 3,
+        "execution_rationale": "[D] CBB approval + local presence.",
+        "payment_rail": "Fawri+/Benefit [A]; likely via Bahraini licensed entity/bank.",
+        "capital_and_licensing": "CBB Crypto-Asset Module (Rulebook Vol.6 CRA): Cat 1-4 capital BD25k/100k/200k/300k (Cat 4 exchange ~US$795k; Cat 3 ~US$530k). Cat 1-3 need Bahrain place of business and resident controlled functions. Standalone but local office. Own-account positions capped at 50% of paid-up capital [V].",
+        "kyc_aml": "Robust AML/CFT; travel-rule wording not seen; not on FATF grey list [V].",
+        "product_changes": "Derivatives 'require separate CBB approval' with derivatives risk framework [V]; no leverage cap found [A]. US equities via separate CBB investment-firm route [A].",
+        "sources": [
+          "https://www.cbb.gov.bh/wp-content/uploads/2022/08/Vol-6-CRA.pdf",
+          "https://cryptoslate.com/crypto-laws/bahrain-cbb-crypto-asset-module-cra/"
+        ],
+        "flags": "PDF opened is a 2022 version; 2025-26 amendments known only from secondary sources. Small market; discretionary approval."
+      },
+      "deep_dive": {
+        "qualifies_reason": "CBB Crypto-Asset Module (Rulebook Vol.6 CRA) is the most established Gulf VASP regime outside the UAE. Cat 3 (~US$530k) or Cat 4 (~US$795k) exchange licence. Derivatives require a separate CBB approval with a derivatives risk framework.",
+        "crypto_route": "CBB Cat 3 or Cat 4 licence under Crypto-Asset Module (CRA) in CBB Rulebook Vol.6. Derivatives require separate CBB approval with a derivatives risk framework — this is a second licensing track.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "Separate CBB investment-firm route; not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Apply for CBB CRA Cat 3 or 4 licence; submit derivatives risk framework for separate CBB approval; establish Bahrain place of business with resident controlled functions; connect to Fawri+/Benefit via a Bahraini licensed entity or bank; implement AML/CFT to CBB standards",
+        "kyc_aml": "Robust CBB AML/CFT requirements; travel-rule wording not seen in source. Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "CBB CRA Rulebook Vol.6: Cat 1 BD25k, Cat 2 BD100k, Cat 3 BD200k (~US$530k), Cat 4 BD300k (~US$795k — exchange). Bahrain place of business and resident controlled functions required. CBB 2022 Rulebook version — 2025–26 amendments known only via secondary sources.",
+        "commercial_adoption": "Small but wealthy market (~1.5M pop.); established Gulf financial hub; strong regulatory clarity is the differentiator from the wider region.",
+        "local_payment_rail": "Fawri+/Benefit — likely via a Bahraini licensed entity or bank (assumption)",
+        "main_hurdle": "CBB derivatives risk framework approval as a second licensing track"
+      }
+    },
+    {
+      "id": "peru",
+      "name": "Peru",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 3,
+        "legality": 2.5,
+        "licence": 4,
+        "fx_custody": 4,
+        "clarity": 2
+      },
+      "screening_score_sheet": 3.08,
+      "priority_index_sheet": 0.98,
+      "research": {
+        "adaptation_cost": 3,
+        "adaptation_rationale": "[D] Core product could run; Peruvian AML registration + travel rule.",
+        "execution_dependency": 3,
+        "execution_rationale": "[D] Local branch/entity; local banks do not serve crypto (CMS).",
+        "payment_rail": "Yape, Plin, interbank transfers [A]; foreign operator likely via local acquirer/bank.",
+        "capital_and_licensing": "No crypto licence, no minimum capital. AML registration with UIF-Perú under SBS Res. 02648-2024 (Jul 2024) covering domestic entities/branches [V-secondary]. Ley Marco (RUPIC register) pending.",
+        "kyc_aml": "PSAV registration + compliance officer; travel rule from 1 Aug 2026 (fuller data >=US$1,000); not on FATF grey list [V].",
+        "product_changes": "Perps neither permitted nor prohibited; no leverage cap [A]; SMV/SBS say they lack jurisdiction over crypto (CMS). Needs opinion on securities/derivatives classification.",
+        "sources": [
+          "https://notabene.id/post/peru-travel-rule-august-1-2026",
+          "https://cms.law/en/int/expert-guides/cms-expert-guide-to-crypto-regulation/peru",
+          "https://www.gob.pe/institucion/smv/noticias/1121398"
+        ],
+        "flags": "Grey-zone route: legally defensible only with counsel sign-off; framework bill pending."
+      },
+      "deep_dive": {
+        "qualifies_reason": "No crypto-exchange licence required and no minimum capital: AML registration with UIF-Perú under SBS Res. 02648-2024 is the entry point. Grey-zone route: legally defensible only with SMV/SBS counsel sign-off on whether perpetuals are regulated instruments.",
+        "crypto_route": "UIF-Perú AML registration under SBS Res. 02648-2024 (Jul 2024) for domestic entities or branches. Perpetuals are neither permitted nor prohibited — obtain SMV/SBS counsel opinion on securities/derivatives classification before launch.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "SMV/SBS say they lack jurisdiction over crypto per local sources; US equities not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Register with UIF-Perú (SBS Res. 02648-2024); appoint compliance officer; obtain SMV/SBS counsel sign-off on perpetuals classification; confirm local payment acquirer for Yape/Plin/interbank transfers; implement travel rule (from 1 Aug 2026, threshold ≥ US$1,000)",
+        "kyc_aml": "PSAV registration requires compliance officer; travel rule from 1 Aug 2026 for transactions ≥ US$1,000. Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "No dedicated crypto licence and no minimum capital. UIF-Perú AML registration (SBS Res. 02648-2024) covers domestic entities and branches. Ley Marco / RUPIC register pending. Counsel sign-off on grey-zone derivatives route is the key gate.",
+        "commercial_adoption": "35M+ population; growing fintech adoption; Yape and Plin have wide reach. Grey-zone route limits marketing and requires careful counsel-led structuring.",
+        "local_payment_rail": "Yape, Plin, interbank transfers — likely via local acquirer or bank (assumption)",
+        "main_hurdle": "SMV/SBS counsel sign-off that crypto perpetuals are permissible under the AML registration regime"
+      }
+    },
+    {
+      "id": "mexico",
+      "name": "Mexico",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 4,
+        "legality": 2,
+        "licence": 3,
+        "fx_custody": 4,
+        "clarity": 2
+      },
+      "screening_score_sheet": 3.0,
+      "priority_index_sheet": 0.9,
+      "research": {
+        "adaptation_cost": 3,
+        "adaptation_rationale": "[D] Local entity + AML registration; perps availability unverified.",
+        "execution_dependency": 3,
+        "execution_rationale": "[D] Banks/ITFs cannot offer crypto -> bank partners needed.",
+        "payment_rail": "SPEI / CoDi [A]; foreign operator likely needs licensed bank/ITF partner.",
+        "capital_and_licensing": "No dedicated crypto-exchange licence found; exchanges operate as non-financial entities under AML registration (UIF); Ley Fintech Art.30 and Banxico Circular 4/2019 bar banks/ITFs from offering crypto to clients [V-secondary]. Capital not found [A].",
+        "kyc_aml": "UIF reporting [V-secondary]; ID/travel rule not verified; not on FATF grey list [V].",
+        "product_changes": "Perps/leverage rules not found [A]. US equities not researched.",
+        "sources": [
+          "https://www.ccn.com/education/crypto/crypto-legal-mexico-banks-ban-crypto-2026/",
+          "https://www.fatf-gafi.org/en/publications/High-risk-and-other-monitored-jurisdictions/increased-monitoring-february-2026.html"
+        ],
+        "flags": "Highest legal uncertainty for its score; Banxico/CNBV text not opened. Conditional on counsel."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter until counsel confirms a lawful route for retail derivatives. Banxico Circular 4/2019 bars banks and ITFs from offering crypto to clients; no exchange licence exists; perpetuals rules not found.",
+        "crypto_route": "No dedicated crypto-exchange licence. Exchanges operate as non-financial entities under UIF AML registration. Banxico 4/2019 bars banks/ITFs from offering crypto directly to clients. Lawful route for retail perpetuals requires CNBV/Banxico counsel confirmation.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US equities not researched. Any route would need a CNBV broker-dealer authorisation.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Obtain CNBV/Banxico counsel sign-off that a retail perpetuals product is permissible; identify a non-bank ITF or licensed bank partner for SPEI/CoDi peso rail; confirm derivatives/leverage classification; implement UIF AML reporting",
+        "kyc_aml": "UIF reporting required (Ley Fintech / AML rules); identity verification (INE/passport); travel rule not verified. Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "No dedicated crypto-exchange licence; no published capital figure. Exchanges register as non-financial entities for UIF AML purposes. Banxico authorisation required for any financial-institution involvement.",
+        "commercial_adoption": "Large, sophisticated retail market; remittance corridor with the US; SPEI/CoDi instant rail has wide reach. High legal uncertainty is the single barrier.",
+        "local_payment_rail": "SPEI / CoDi — foreign operator needs a licensed bank or ITF partner (assumption)",
+        "main_hurdle": "Counsel confirmation of a lawful route for retail crypto perpetuals under Ley Fintech / Banxico rules"
+      }
+    },
+    {
+      "id": "uruguay",
+      "name": "Uruguay",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 2,
+        "legality": 2.5,
+        "licence": 3,
+        "fx_custody": 5,
+        "clarity": 3
+      },
+      "screening_score_sheet": 2.92,
+      "priority_index_sheet": 0.83,
+      "research": {
+        "adaptation_cost": 3,
+        "adaptation_rationale": "[D] Segregation, risk disclosures, annual cyber audit, security officer.",
+        "execution_dependency": 3,
+        "execution_rationale": "[D] BCU authorisation; foreign-branch documentation (Circular 2507).",
+        "payment_rail": "BCU-supervised bank transfers/local wallets [A]; no evidence of direct foreign access.",
+        "capital_and_licensing": "BCU (SSF) PSAV regime, Circular 2507 (dated 28 or 31 Jul 2026 - sources differ; SSF Res. 2026-444 of 10 Jul 2026). Custody: minimum equity UI1,000,000 (~US$164-190k) + UI600,000 BCU guarantee deposit + UI50,000 operating deposit. Applications from 1 Sep 2026; transition to 31 Mar 2027; full compliance 30 Jun 2027. Standalone, local entity/branch likely [V-secondary].",
+        "kyc_aml": "AML equivalent to securities intermediaries; UIAF STRs; thresholds US$10,000 cash / US$1,000 transfers; not on FATF grey list [V].",
+        "product_changes": "Covered services: exchange, VA-to-VA trading, custody, transfers; perps/leverage not addressed [A].",
+        "sources": [
+          "https://cointelegraph.es/news/uruguay-el-banco-central-aprob-normativa-que-regula-a-los-proveedores-de-servicios-de-activos-virtuales",
+          "https://bergsteinlaw.com/activos-virtuales-ii-el-proyecto-psav-y-la-circular-del-bcu/",
+          "https://www.ambito.com/uruguay/el-banco-central-del-exigira-plataformas-criptomonedas-garantias-dolares-y-reporte-datos-usuarios-n6302482"
+        ],
+        "flags": "BCU page did not open (certificate error). Small market (~3.4M). Untested regime."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: market of ~3.4M is too small and the BCU PSAV regime (Circular 2507, Jul 2026) is untested with perpetuals unaddressed. Revisit only as an entity hub.",
+        "crypto_route": "BCU (SSF) PSAV licence under Circular 2507 covers exchange, VA-to-VA trading, custody and transfers. Perpetuals and leverage not addressed — separate BCU guidance or counsel opinion needed before any derivatives product.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US equities not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Establish local entity or branch; apply for BCU PSAV licence (applications open 1 Sep 2026; full compliance by 30 Jun 2027); obtain BCU guidance on perpetuals/leverage classification; confirm bank-transfer rail access; implement UIAF STR reporting",
+        "kyc_aml": "AML equivalent to securities intermediaries; UIAF STRs required; thresholds US$10,000 cash / US$1,000 transfers. Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "BCU PSAV Circular 2507: custody minimum equity UI1,000,000 (~US$164–190k) + UI600,000 BCU guarantee deposit + UI50,000 operating deposit. Applications open 1 Sep 2026; transition to 31 Mar 2027; full compliance 30 Jun 2027. Local entity or branch likely required.",
+        "commercial_adoption": "Population ~3.4M; growing fintech adoption but too small to justify standalone build. No evidence of direct foreign payment-rail access.",
+        "local_payment_rail": "BCU-supervised bank transfers and local wallets — no evidence of direct foreign access (assumption)",
+        "main_hurdle": "Market too small; revisit only after BCU clarifies perpetuals treatment"
+      }
+    },
+    {
+      "id": "mauritius",
+      "name": "Mauritius",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 1,
+        "legality": 3,
+        "licence": 3.5,
+        "fx_custody": 4,
+        "clarity": 4
+      },
+      "screening_score_sheet": 2.9,
+      "priority_index_sheet": 0.8,
+      "research": {
+        "adaptation_cost": 3,
+        "adaptation_rationale": "[D] Perps sit outside VAITOS spot classes; CFDs need Investment Dealer licence.",
+        "execution_dependency": 3,
+        "execution_rationale": "[D] FSC licence, management company, resident directors.",
+        "payment_rail": "Not verified [A].",
+        "capital_and_licensing": "FSC VAITOS Act 2021: Class M broker-dealer MUR2M (~US$44k), Class R custodian MUR5M (~US$110k), Class S exchange MUR6.5M (~US$143k); Investment Dealer ~US$22k; Mauritius office, 2 resident directors; 4-12 months [V-secondary]. Standalone but substance-heavy.",
+        "kyc_aml": "FSC-licensed VASPs said to meet FATF R.15/travel rule (secondary claim); not on FATF grey list [V].",
+        "product_changes": "No FSC leverage cap; retail-perpetual treatment and non-resident retail servicing unclear [A].",
+        "sources": [
+          "https://www.fscmauritius.org/media/119930/faqs-vaitos-act-2021.pdf",
+          "https://www.zitadelleag.com/services/vasp-licensing/mauritius-vasp",
+          "https://www.zitadelleag.com/services/investment-licensing/mauritius-investment-dealer"
+        ],
+        "flags": "Hub/licensing base (pop. ~1.3M), not a user market; Opportunity scored 1."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter as a user market: population ~1.3M gives market opportunity 1/5. FSC licence is fast and affordable but the addressable base does not justify the build. Consider only as an entity/licensing hub.",
+        "crypto_route": "FSC VAITOS Act 2021 licence (Class S exchange, MUR6.5M ~US$143k). Leverage cap not specified; retail-perpetual treatment and non-resident retail servicing not confirmed — FSC pre-application clarification needed.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "Investment Dealer licence (~US$22k) under FSC; MochaTrade US-equities route not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Obtain FSC pre-application confirmation on retail perpetuals and non-resident retail servicing; establish Mauritius office with two resident directors; Class S exchange licence (MUR6.5M); confirm payment rail; implement FSC AML/CFT and FATF R.15 travel rule",
+        "kyc_aml": "FSC-licensed VASPs said to meet FATF R.15 and travel rule (secondary claim). Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "FSC VAITOS Act 2021: Class M broker-dealer MUR2M (~US$44k), Class R custodian MUR5M (~US$110k), Class S exchange MUR6.5M (~US$143k). Mauritius office and two resident directors required; 4–12 months to licence.",
+        "commercial_adoption": "Hub/licensing base only (~1.3M pop.); not a retail user market. Consider as a regulatory gateway for the African region.",
+        "local_payment_rail": "Payment rail not verified (assumption)",
+        "main_hurdle": "Not a user market — only viable as a licensing hub; confirm FSC position on retail perpetuals before any launch"
+      }
+    },
+    {
+      "id": "panama",
+      "name": "Panama",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 2,
+        "legality": 2.5,
+        "licence": 4,
+        "fx_custody": 5,
+        "clarity": 1.5
+      },
+      "screening_score_sheet": 2.9,
+      "priority_index_sheet": 0.8,
+      "research": {
+        "adaptation_cost": 2,
+        "adaptation_rationale": "[D] Little to change today; future licence unknown.",
+        "execution_dependency": 4,
+        "execution_rationale": "[D] Bank access + future law.",
+        "payment_rail": "Not verified [A].",
+        "capital_and_licensing": "No VASP licence exists. Draft Law 314 filed 13 Jan 2026, still in committee; SBP Acuerdo 01-2026 (SBP-supervised entities); SMV Opinion 7-2018: licensed brokers cannot offer crypto [V-secondary].",
+        "kyc_aml": "Law 23 of 2015 KYC/EDD; STRs within 15 working days; notarised source-of-funds (SBP Acuerdo); not on FATF grey list [V].",
+        "product_changes": "No explicit derivatives rules or leverage cap; perps are a grey zone [A].",
+        "sources": [
+          "https://www.pacifica.legal/blog/perpetual-futures-and-crypto-derivatives-in-panama-beyond-existing-regulatory-categories",
+          "https://globallawexperts.com/panama-fintech-law-2026-draft-law-no-314-sbp-rule-1-2026-licensing-aml-and-bank-access/"
+        ],
+        "flags": "Scores above 2.5 only because there is no licence burden; no defensible licensed route today."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: no VASP licence exists (Draft Law 314 still in committee); SMV Opinion 7-2018 bars licensed brokers from offering crypto; perpetuals are a legal grey zone. No defensible route today.",
+        "crypto_route": "No VASP licence exists. Draft Law 314 (filed 13 Jan 2026) is in committee — no enactment date. SMV Opinion 7-2018 bars licensed brokers from crypto. Any crypto structure rests on absence-of-law, not permission.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US equities not researched; any route likely requires SMV broker-dealer registration.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Monitor Draft Law 314 progress; obtain legal opinion on operating under current absence-of-law framework; confirm which SBP-supervised entity type would apply once the law passes; confirm payment rail access; implement Law 23/2015 KYC/EDD and UIAF STRs",
+        "kyc_aml": "Law 23 of 2015 requires KYC/EDD; STRs within 15 working days; notarised source-of-funds under SBP Acuerdo 01-2026. Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "No VASP licence exists. Draft Law 314 would create an SBP-supervised entity type (capital unknown). USD economy means no FX risk on capital requirements once enacted.",
+        "commercial_adoption": "Small market (~4.4M pop.); dollarised economy is attractive. No licensed route until Draft Law 314 passes.",
+        "local_payment_rail": "Payment rail not verified — likely via a local bank or PSP (assumption)",
+        "main_hurdle": "Draft Law 314 must pass before any licensed entry is possible"
+      }
+    },
+    {
+      "id": "georgia",
+      "name": "Georgia",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 2,
+        "legality": 2.5,
+        "licence": 3.5,
+        "fx_custody": 4,
+        "clarity": 3
+      },
+      "screening_score_sheet": 2.88,
+      "priority_index_sheet": 0.78,
+      "research": {
+        "adaptation_cost": 3,
+        "adaptation_rationale": "[D] Perps permissibility unknown; VASPs may only conduct VA business (US equities need separate entity).",
+        "execution_dependency": 3,
+        "execution_rationale": "[D] NBG registration, local officer, bank.",
+        "payment_rail": "Not verified [A]; likely local bank/PSP.",
+        "capital_and_licensing": "NBG VASP registration (AML law amendments, 16 May 2023): JSC min GEL100,000 (~US$37k); LLC no stated minimum; fee GEL5,000; officer in Georgia >=14 days/month; banking is 'the bottleneck' [V-secondary].",
+        "kyc_aml": "VASPs are AML obliged entities; travel rule from 1 Jan 2024; FATF R.15 rated PC (Dec 2023); not on grey list [V].",
+        "product_changes": "No derivatives/leverage provisions found [A]; VA lending prohibited; VA payments restricted.",
+        "sources": [
+          "https://nbg.gov.ge/en/page/virtual-asset-service-providers-vasps",
+          "https://rm.coe.int/moneyval-2023-25-ge-5thround-2ndenhfur/1680ae8b8b",
+          "https://legalese.ge/blog/vasp-licence-in-georgia/"
+        ],
+        "flags": "Better as an entity hub than a user market (~3.7M pop.)."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter as a user market: population ~3.7M; banking access is 'the bottleneck' for VASPs; VA lending and VA payments are restricted. Consider only as an entity hub.",
+        "crypto_route": "NBG VASP registration under AML law amendments (16 May 2023): JSC min GEL100,000 (~US$37k), LLC no stated minimum, fee GEL5,000. Officer in Georgia ≥14 days/month required. No derivatives or leverage provisions; VA lending prohibited.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US equities not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Register as a VASP with NBG (GEL100k for JSC); appoint officer resident in Georgia ≥14 days/month; obtain counsel opinion on derivatives/leverage under current rules; identify a Georgian bank willing to serve a VASP (banking bottleneck); implement NBG AML/CFT requirements",
+        "kyc_aml": "VASPs are AML obliged entities; travel rule in force from 1 Jan 2024; FATF R.15 rated Partially Compliant (Dec 2023). Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "NBG VASP registration: JSC minimum GEL100,000 (~US$37k); LLC no stated minimum; GEL5,000 registration fee. Officer in Georgia ≥14 days/month. Banking access is described as the primary operational bottleneck.",
+        "commercial_adoption": "Population ~3.7M; better suited as an entity hub than a retail market. VA payments are restricted by separate rules.",
+        "local_payment_rail": "Local bank or PSP — banking access is the operational bottleneck for VASPs (assumption)",
+        "main_hurdle": "Banking bottleneck: finding a Georgian bank willing to open accounts for a VASP"
+      }
+    },
+    {
+      "id": "argentina",
+      "name": "Argentina",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 4,
+        "legality": 2,
+        "licence": 3,
+        "fx_custody": 2,
+        "clarity": 3
+      },
+      "screening_score_sheet": 2.85,
+      "priority_index_sheet": 0.75,
+      "research": {
+        "adaptation_cost": 3,
+        "adaptation_rationale": "[D] Local SA/SRL or branch; spot-focused PSAV framework.",
+        "execution_dependency": 3,
+        "execution_rationale": "[D] CNV registration; banking rail unknown.",
+        "payment_rail": "Transferencias 3.0 / Debin [A - unsourced].",
+        "capital_and_licensing": "CNV PSAV registry (RG 994/2024; RG 1058/2025, 14 Mar 2025): net worth US$150k exchange/custody, US$75k transfers, 50% reduction if volume <US$2.5M; local SA/SRL or branch ~5-8 months; standalone [V-secondary].",
+        "kyc_aml": "UIF Res. 49/2024 travel rule (secondary); not on FATF grey list [V].",
+        "product_changes": "RG 1058/2025 silent on derivatives/leverage; perps may fall under wider capital-markets regime [A]. Company FX controls ('cepo') persist (BCRA, May 2026; Infobae headlines).",
+        "sources": [
+          "https://www.boletinoficial.gob.ar/detalleAviso/primera/322539/20250314",
+          "https://jfcattorneys.com/en/guides/argentina-crypto-license",
+          "https://www.infobae.com/economia/2026/05/19/el-bcra-confirmo-que-mantendra-el-cepo-cambiario-a-las-empresas-cuales-son-las-restricciones-que-siguen-vigentes/"
+        ],
+        "flags": "Key legal question: does perps need a CNV derivatives authorisation?"
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter until CNV confirms perpetuals sit inside the PSAV registry and corporate FX controls are lifted. PSAV regime is workable but the derivatives question and FX controls are unresolved blockers.",
+        "crypto_route": "CNV PSAV registry (RG 994/2024; RG 1058/2025, 14 Mar 2025). RG 1058/2025 is silent on derivatives and leverage — perpetuals may fall under the wider capital-markets regime requiring a separate CNV derivatives authorisation. Counsel confirmation needed before filing.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US equities not researched; would likely need a separate CNV securities-broker registration.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Obtain CNV counsel sign-off on whether perpetuals are inside the PSAV registry or need a separate derivatives authorisation; monitor BCRA FX control relaxation; incorporate local SA/SRL or branch (5–8 months); register in CNV PSAV registry (net worth US$150k exchange/custody); implement UIF Res. 49/2024 travel rule",
+        "kyc_aml": "UIF Res. 49/2024 travel rule in force (secondary source); not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "CNV PSAV registry (RG 994/2024; RG 1058/2025): net worth US$150k exchange/custody, US$75k transfers, 50% reduction if volume <US$2.5M. Local SA/SRL or branch required; ~5–8 months incorporation.",
+        "commercial_adoption": "Large retail crypto market; Transferencias 3.0/Debin instant rail; inflation-driven demand for dollar-linked products. Corporate FX controls ('cepo') constrain repatriation and settlement.",
+        "local_payment_rail": "Transferencias 3.0 / Debin — unsourced; local bank or PSP partner likely required (assumption)",
+        "main_hurdle": "CNV derivatives authorisation question + corporate FX controls ('cepo')"
+      }
+    },
+    {
+      "id": "chile",
+      "name": "Chile",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 3,
+        "legality": 2,
+        "licence": 3,
+        "fx_custody": 3,
+        "clarity": 3
+      },
+      "screening_score_sheet": 2.75,
+      "priority_index_sheet": 0.65,
+      "research": {
+        "adaptation_cost": 3,
+        "adaptation_rationale": "[D] CMF registration under Fintec law.",
+        "execution_dependency": 3,
+        "execution_rationale": "[D] CMF registration; foreign-entity treatment unverified.",
+        "payment_rail": "Chilean transfers/open banking [A]; foreign access LIMITED EVIDENCE.",
+        "capital_and_licensing": "Ley Fintec 21.521 (Dec 2022) + CMF NCG 502 cover crypto exchange, custody, advice (secondary); capital amount not found [A].",
+        "kyc_aml": "Not verified; not on FATF grey list [V].",
+        "product_changes": "Retail perps/leverage rules not found [A]; CMF warned on unregistered platforms (5 Aug 2025) [V].",
+        "sources": [
+          "https://ecosistemastartup.com/ley-fintech-chile-2026-42-startups-registradas-y-plazos-cmf/",
+          "https://www.cmfchile.cl/portal/prensa/615/w3-article-97234.html"
+        ],
+        "flags": "Whether derivatives are regulated instruments is unconfirmed."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter until CMF confirms whether crypto perpetuals are regulated instruments under Ley Fintec 21.521 / CMF NCG 502 and publishes a capital figure. CMF has warned against unregistered platforms.",
+        "crypto_route": "Ley Fintec 21.521 (Dec 2022) + CMF NCG 502 cover crypto exchange, custody and advice. Whether perpetuals are regulated instruments has not been confirmed — this is the primary open question. Capital amount not found.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US equities not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Obtain CMF counsel opinion on derivatives classification under Ley Fintec / NCG 502; confirm capital requirement for the applicable CMF category; identify local bank or PSP for Chilean open-banking/transfer rail access; implement AML/CFT to CMF standards; do not operate until CMF classification is confirmed (Aug 2025 warning)",
+        "kyc_aml": "AML/CFT requirements apply under CMF framework; specific requirements not verified. Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "Ley Fintec 21.521 + CMF NCG 502: covers exchange, custody and advice (secondary source). Capital amount not found. CMF warned against unregistered platforms 5 Aug 2025.",
+        "commercial_adoption": "19M population; open-banking infrastructure; growing fintech ecosystem. Foreign rail access has limited evidence.",
+        "local_payment_rail": "Chilean transfers and open banking — foreign operator access has limited evidence (assumption)",
+        "main_hurdle": "CMF counsel opinion on whether perpetuals are regulated instruments under Ley Fintec"
+      }
+    },
+    {
+      "id": "costa_rica",
+      "name": "Costa Rica",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 2,
+        "legality": 2,
+        "licence": 4,
+        "fx_custody": 4,
+        "clarity": 2
+      },
+      "screening_score_sheet": 2.7,
+      "priority_index_sheet": 0.95,
+      "research": {
+        "adaptation_cost": 2,
+        "adaptation_rationale": "[D] AML/KYC controls only.",
+        "execution_dependency": 3,
+        "execution_rationale": "[D] Sugef registration; Conassif secondary rules pending.",
+        "payment_rail": "SINPE Movil [A]; foreign operator needs licensed bank/partner.",
+        "capital_and_licensing": "Legislative Decree 10961 (approved 25 May 2026; La Gaceta Alcance 78, 19 Jun 2026) amending Law 7786: Sugef registration, no capital figure [V-primary gazette]. In force ~3 months after publication (~19 Sep 2026, unconfirmed); up to 3 months for regulations.",
+        "kyc_aml": "CDD, beneficial ownership, PEP, STRs to FIU; penalties 0.5-2% of equity to 5-50% of transaction amounts; not on FATF grey list [V].",
+        "product_changes": "Derivatives/leverage not addressed; no US-equities route evidence [A].",
+        "sources": [
+          "https://www.imprentanacional.go.cr/pub/2026/06/19/ALCA78_19_06_2026.pdf",
+          "https://delfino.cr/2026/05/asamblea-aprueba-regulacion-de-criptoactivos-contra-lavado-de-dinero"
+        ],
+        "flags": "Implementing regulations pending; AML-only law."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: Decree 10961 (May 2026) is AML-only; implementing regulations are pending and derivatives are not addressed. No licensed route exists today.",
+        "crypto_route": "Sugef registration under Legislative Decree 10961 (La Gaceta, 19 Jun 2026), amending AML Law 7786. In force ~3 months after publication (~Sep 2026, unconfirmed); implementing regulations pending up to 3 months more. Derivatives and leverage not addressed.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US equities not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Monitor Sugef implementing regulations for capital figure and licence categories; obtain counsel opinion on derivatives once regulations are published; identify licensed bank/PSP partner for SINPE Móvil access; implement CDD, beneficial ownership, PEP screening and FIU STRs required by the decree",
+        "kyc_aml": "Decree 10961 requires CDD, beneficial ownership, PEP screening and STRs to FIU; penalties 0.5–2% of equity to 5–50% of transaction amounts. Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "Sugef registration under Decree 10961 (La Gaceta Alcance 78, 19 Jun 2026): AML-only registration, no capital figure published. Full implementing regulations expected within 3 months of in-force date.",
+        "commercial_adoption": "Small market (~5.2M pop.); SINPE Móvil has wide reach but access requires a licensed bank/PSP partner. Derivatives-only entry is not viable until regulations address the product.",
+        "local_payment_rail": "SINPE Móvil — foreign operator needs a licensed bank or PSP partner (assumption)",
+        "main_hurdle": "Implementing regulations pending; derivatives not addressed in the decree"
+      }
+    },
+    {
+      "id": "ghana",
+      "name": "Ghana",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 3,
+        "legality": 2,
+        "licence": 3,
+        "fx_custody": 3,
+        "clarity": 2
+      },
+      "screening_score_sheet": 2.6,
+      "priority_index_sheet": 0.15,
+      "research": {
+        "adaptation_cost": 3,
+        "adaptation_rationale": "[D] Full local build.",
+        "execution_dependency": 4,
+        "execution_rationale": "[D] Two regulators (BoG + SEC) must act.",
+        "payment_rail": "Mobile money, GhIPSS/GhanaPay [A]; likely via partner.",
+        "capital_and_licensing": "VASP Act 2025 (Act 1154; passed 19 Dec 2025, law 30 Dec 2025): registration/licence/waiver; decisions within 90 days; Ghana company + 3 directors (1 resident, 1 independent); SEC for exchanges/brokerage, BoG for custody/payments [V-secondary]. Capital not found. No licences issued; sandbox of 6 firms from Feb 2026 for one year; operations targeted 2027.",
+        "kyc_aml": "Not found; Ghana not on FATF grey list (Jun 2026) [V-primary].",
+        "product_changes": "Derivatives not addressed [A].",
+        "sources": [
+          "https://www.bog.gov.gh/wp-content/uploads/2026/03/VASP-Act-FAQs.pdf",
+          "https://www.afriwise.com/blog/ghanas-vasp-act",
+          "https://www.riotimesonline.com/ghana-virtual-assets-committee-boa-sec-2026/"
+        ],
+        "flags": "Watchlist: no lawful route until licensing opens; rules still being drafted."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: VASP Act 2025 exists but no licences have been issued; a six-firm sandbox runs until early 2027 and full operations are targeted for 2027. Derivatives not addressed.",
+        "crypto_route": "VASP Act 2025 (Act 1154, 30 Dec 2025): SEC oversees exchanges/brokerage, BoG oversees custody/payments. Decisions within 90 days of application. Licensing window not yet open (sandbox only until early 2027). Derivatives not addressed.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US equities not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Monitor VASP Act licensing window opening (post-sandbox, early 2027); obtain SEC counsel opinion on derivatives once capital requirements are published; incorporate Ghana company with 3 directors (1 resident, 1 independent); apply for SEC exchange licence + BoG custody/payments licence; confirm mobile money or GhIPSS/GhanaPay partner access",
+        "kyc_aml": "KYC/AML requirements under VASP Act 2025 not yet published in detail. Not on FATF grey list (Jun 2026).",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "VASP Act 2025 (Act 1154): Ghana company + 3 directors (1 resident, 1 independent); SEC for exchanges/brokerage; BoG for custody/payments; capital not yet published; decisions within 90 days once the window opens.",
+        "commercial_adoption": "33M+ population; mobile money penetration is high. No lawful route until licensing opens post-sandbox.",
+        "local_payment_rail": "Mobile money, GhIPSS/GhanaPay — likely via a licensed partner (assumption)",
+        "main_hurdle": "Licensing window not yet open; capital and derivatives treatment not yet published"
+      }
+    },
+    {
+      "id": "colombia",
+      "name": "Colombia",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 3,
+        "legality": 2,
+        "licence": 3,
+        "fx_custody": 3,
+        "clarity": 1
+      },
+      "screening_score_sheet": 2.45,
+      "priority_index_sheet": 0.0,
+      "research": {
+        "adaptation_cost": 3,
+        "adaptation_rationale": "[A] Assumed.",
+        "execution_dependency": 4,
+        "execution_rationale": "[D] Framework/partners do not exist yet.",
+        "payment_rail": "PSE / Bre-B [A - unsourced].",
+        "capital_and_licensing": "No licence regime. Government bill drafted but not submitted (Valora Analitik, 25 Feb 2026) - would create SFC-supervised entity type; capital unknown [V-draft].",
+        "kyc_aml": "DIAN Res. 000240 (24 Dec 2025): crypto transaction reporting >US$50k from Jan 2026 [V-secondary]; travel rule not verified; not on FATF grey list [V].",
+        "product_changes": "Perps/leverage status not found [A].",
+        "sources": [
+          "https://www.valoraanalitik.com/gobierno-tiene-listo-proyecto-de-ley-para-regular-activos-digitales-en-colombia/"
+        ],
+        "flags": "Below/at threshold; no lawful path today. A claimed 'Decree 1297 (2023)' registry could not be confirmed."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: no licence regime exists; government bill not submitted (Feb 2026); no lawful path today. DIAN crypto-reporting rule is the only active regulation.",
+        "crypto_route": "No licence regime. Government bill drafted but not submitted to Congress (Valora Analitik, 25 Feb 2026) — would create an SFC-supervised entity type with unknown capital. A claimed 'Decree 1297 (2023)' registry could not be confirmed.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US equities not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Monitor SFC bill submission and passage; obtain SFC counsel opinion once bill passes on derivatives classification; identify PSE/Bre-B partner for peso rail; implement DIAN Res. 000240 crypto-transaction reporting (>US$50k from Jan 2026)",
+        "kyc_aml": "DIAN Res. 000240 (24 Dec 2025): crypto transaction reporting >US$50k from Jan 2026. Travel rule not verified. Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "No licence regime. SFC bill (if submitted and passed) would create a supervised entity type; capital unknown. Only active rule: DIAN crypto-transaction reporting from Jan 2026.",
+        "commercial_adoption": "52M+ population; significant remittance flows; strong informal crypto use. No lawful path until the bill passes.",
+        "local_payment_rail": "PSE / Bre-B — unsourced; local bank partner likely required (assumption)",
+        "main_hurdle": "SFC bill must be submitted and passed before any licensed entry is possible"
+      }
+    },
+    {
+      "id": "malaysia",
+      "name": "Malaysia",
+      "list": "additional",
+      "scores": {
+        "market_opportunity": 3,
+        "legality": 1.5,
+        "licence": 2,
+        "fx_custody": 3,
+        "clarity": 3
+      },
+      "screening_score_sheet": 2.42,
+      "priority_index_sheet": -0.73,
+      "research": {
+        "adaptation_cost": 5,
+        "adaptation_rationale": "[D] Perps not permitted -> spot-only, cash-funded product.",
+        "execution_dependency": 4,
+        "execution_rationale": "[D] SC recognition, local Sdn Bhd, auditor readiness.",
+        "payment_rail": "DuitNow, FPX, JomPAY [A]; access via licensed banks/PSPs.",
+        "capital_and_licensing": "SC-recognised DAX: paid-up capital RM5M (~US$1.1M); SC CP 3/2025 (30 Jun 2025) proposes RM15M (~US$3.4M) - outcome unconfirmed [V-secondary]. Foreign-ownership limits not found. Standalone but local company.",
+        "kyc_aml": "Not on FATF grey list (Jun 2026) [V]; ID/travel rule [A].",
+        "product_changes": "SC clarification 30 Jan 2026: CMSL holders barred from margin/lending; cash-upfront broking [V-secondary]. No lawful retail-perps route found. US equities via Malaysian brokers [A - unverified].",
+        "sources": [
+          "https://www.bakermckenzie.com/en/insight/publications/2026/02/malaysia-securities-commission-clarifies-requirements-digital-asset-broking",
+          "https://www.skrine.com/insights/alerts/july-2025/securities-commission-proposes-to-enhance-digital",
+          "https://www.sc.com.my/digital-assets"
+        ],
+        "flags": "16th on score by a hair (2.43 vs Turkey 2.40); significant product modification."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: SC clarification (30 Jan 2026) bars CMSL holders from margin and lending; cash-upfront broking only. No lawful retail-perpetuals route exists. Core product is unlawful.",
+        "crypto_route": "SC-recognised DAX licence (paid-up capital RM5M ~US$1.1M; proposed RM15M ~US$3.4M under CP 3/2025, outcome unconfirmed). SC clarification 30 Jan 2026 explicitly bars CMSL holders from margin, lending and leveraged products. Cash-upfront spot trading only.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US equities via Malaysian licensed brokers (assumption, unverified).",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Monitor SC for any revision to the Jan 2026 margin/leverage bar; obtain SC counsel opinion on whether a perpetuals product can ever be permissible; if SC permits derivatives, apply for DAX licence (RM5–15M capital) via local Malaysian company; access DuitNow/FPX/JomPAY through licensed banks/PSPs",
+        "kyc_aml": "SC AML/CFT and MAS-equivalent requirements apply; ID and travel rule — specific details not verified. Not on FATF grey list (Jun 2026).",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "SC-recognised DAX: current paid-up capital RM5M (~US$1.1M); SC CP 3/2025 (30 Jun 2025) proposes RM15M (~US$3.4M) — outcome unconfirmed. Local Malaysian company required.",
+        "commercial_adoption": "33M population; high digital-banking penetration; DuitNow/FPX/JomPAY well-established. The product change needed (spot-only, no leverage) removes MochaTrade's core differentiator.",
+        "local_payment_rail": "DuitNow, FPX, JomPAY — accessible via licensed Malaysian banks/PSPs (assumption)",
+        "main_hurdle": "SC must reverse or qualify the Jan 2026 margin/leverage bar before any perpetuals product is lawful"
+      }
+    },
+    {
+      "id": "turkey",
+      "name": "Turkey",
+      "list": "reserve",
+      "scores": {
+        "market_opportunity": 4,
+        "legality": 1,
+        "licence": 2,
+        "fx_custody": 2,
+        "clarity": 3
+      },
+      "screening_score_sheet": 2.4,
+      "research": {
+        "reserve_reason": "Law 7518 (2 Jul 2024) + SPK Communiques III-35/B.1-B.2 (13 Mar 2025); leveraged/derivative crypto reportedly prohibited (single secondary source); capital TRY150M exchange / TRY500M custody."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: Law 7518 and SPK Communiqué III-35/B.1 explicitly prohibit leveraged trading, derivatives, margin and short selling in crypto on Turkish platforms. Core product is unlawful.",
+        "crypto_route": "SPK (Capital Markets Board) licence under Law 7518 (2 Jul 2024) and Communiqués III-35/B.1–B.2 (13 Mar 2025). Leveraged trading, derivative contracts, margin and short selling in listed crypto assets are explicitly prohibited. Foreign platforms targeting Turkey must have ceased by 1 Oct 2024.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "Not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "None actionable until SPK reverses the derivatives prohibition in Communiqué III-35/B.1. Do not operate in or target Turkish users.",
+        "kyc_aml": "SPK-licensed CASPs subject to full MASAK AML/CFT obligations; anonymous accounts prohibited; travel rule applies. Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "SPK licence: exchange TRY150M (~US$4.7M at ~TRY32/USD), custody TRY500M (~US$15.6M). 95% of client assets must be held with an authorised custodian. Final operating licences not yet issued as of mid-2026 (still in transition regime).",
+        "commercial_adoption": "90M+ population; very high crypto adoption. Core product (perpetuals) is explicitly prohibited — the market is closed until SPK reverses the ban.",
+        "local_payment_rail": "Turkish bank transfers — payment and e-money institutions are barred from intermediating certain transfers to crypto platforms",
+        "main_hurdle": "SPK must reverse the derivatives prohibition (Communiqué III-35/B.1) before any perpetuals product is lawful"
+      }
+    },
+    {
+      "id": "oman",
+      "name": "Oman",
+      "list": "reserve",
+      "scores": {
+        "market_opportunity": 2,
+        "legality": 1.5,
+        "licence": 2,
+        "fx_custody": 3,
+        "clarity": 2
+      },
+      "screening_score_sheet": 2.025,
+      "research": {
+        "reserve_reason": "FSA Decision E/35/2023; framework only planned."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: only AML registration exists (FSA Decision E/35/2023); the Virtual Assets Regulatory Framework is still in consultation with no enactment date; no licence categories, fees or capital have been published.",
+        "crypto_route": "FSA Decision E/35/2023 requires VASPs to register and comply with AML/CFT — registration only, not a licence. The Virtual Assets Regulatory Framework (announced Feb 2023; consultation 2023 and 2025) has not been enacted. CBO has not licensed any crypto entity.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "Not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Monitor FSA VARF for enactment and published licence categories; register for AML/CFT under FSA E/35/2023 as a preparatory step if counsel advises; confirm payment rail availability once a licence track exists",
+        "kyc_aml": "FSA E/35/2023 requires enhanced AML/CFT and CTF measures for registered VASPs; CBO has issued public risk warnings. Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "No licence framework yet. FSA Decision E/35/2023 = AML/CFT registration only. Virtual Assets Regulatory Framework in development since Feb 2023 — consultation ran 2023 and 2025; no enacted text as of Sep 2026.",
+        "commercial_adoption": "Small wealthy Gulf market (~4.9M pop.); no formal retail crypto route until VARF is enacted.",
+        "local_payment_rail": "Payment rail not verified — likely via a licensed Omani bank once a framework exists (assumption)",
+        "main_hurdle": "FSA must enact the Virtual Assets Regulatory Framework with published licence categories and capital requirements"
+      }
+    },
+    {
+      "id": "ukraine",
+      "name": "Ukraine",
+      "list": "reserve",
+      "scores": {
+        "market_opportunity": 3,
+        "legality": 1.5,
+        "licence": 2,
+        "fx_custody": 2,
+        "clarity": 1
+      },
+      "screening_score_sheet": 1.975,
+      "research": {
+        "reserve_reason": "Draft Law 10225-d (first reading Sep 2025); no enacted regime."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: Draft Law 10225-d passed first reading (Sep 2025) and was being prepared for second reading in 2026 — not enacted; no licence, no operational rules, wartime currency restrictions in force.",
+        "crypto_route": "Draft Law 10225-d (MiCA-aligned) passed first reading 3 Sep 2025; being prepared for second reading. Proposes MiCA-style VASP registration, tax rules (18% PIT + 5% military levy) and KYC/AML obligations. Many changes expected before second reading; no implementation date.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "Not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Monitor second reading of Draft Law 10225-d and final published text; once enacted, obtain counsel opinion on derivatives classification under the new regime; prepare for VASP registration with tax authorities (60-day window post-enactment); implement KYC/AML aligned to MiCA standards; confirm payment rail under wartime currency controls",
+        "kyc_aml": "Draft law proposes VASP registration with tax authorities, KYC/AML controls and transaction monitoring. Law of Ukraine 'On Currency and Currency Transactions' imposes wartime FX restrictions. Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "Draft Law 10225-d: providers must register with tax authorities within 60 days of commencing services; capital requirements not yet published. Nothing is law until second reading passes and is signed.",
+        "commercial_adoption": "Large crypto-active population (top 10 globally); dollar-denominated P2P activity widespread. Wartime conditions create operational and currency risks.",
+        "local_payment_rail": "Ukrainian bank transfers subject to wartime currency controls; cross-border flows constrained by NBU restrictions",
+        "main_hurdle": "Draft Law 10225-d must pass second reading and be signed into law before any filing is possible"
+      }
+    },
+    {
+      "id": "saudi_arabia",
+      "name": "Saudi Arabia",
+      "list": "reserve",
+      "scores": {
+        "market_opportunity": 3,
+        "legality": 1.5,
+        "licence": 1,
+        "fx_custody": 3,
+        "clarity": 1
+      },
+      "screening_score_sheet": 1.925,
+      "research": {
+        "reserve_reason": "SAMA bars banks from facilitating crypto; CMA framework in development."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: the 2018 Standing Committee declared virtual currencies unauthorised; no crypto-exchange licence exists; the CMA/SAMA framework covers tokenised securities only. Core product has no legal basis.",
+        "crypto_route": "No crypto-exchange or derivatives licence exists. The 2018 Standing Committee (SAMA + CMA) declared virtual currencies unauthorised. CMA sandbox is for tokenised securities — not crypto exchanges or derivatives. A formal licensing framework for crypto service providers has not been published.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "Tadawul-listed securities via CMA-licensed brokers; MochaTrade US-equities route not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Monitor SAMA/CMA for any published crypto service-provider licensing framework; do not operate or target Saudi users until a licence category is published; once a framework exists, obtain Shariah-compliance assessment for perpetuals products",
+        "kyc_aml": "Saudi AML/CFT framework (Anti-Money Laundering Law, Royal Decree M/20 of 2016) is comprehensive; crypto AML guidance issued Dec 2025 extends obligations to Tadawul-listed digital assets. Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "No crypto service-provider licence exists. CMA sandbox: average 14 months to a licence, SAR1M minimum capital — but covers tokenised securities only, not crypto exchanges or derivatives.",
+        "commercial_adoption": "35M+ population; high digital-banking adoption; Vision 2030 driving fintech investment. Retail crypto has no legal basis until SAMA/CMA publish a framework.",
+        "local_payment_rail": "Mada/SARIE/SADAD payment rails — access requires a licenced Saudi financial entity; crypto platforms cannot access rails directly",
+        "main_hurdle": "SAMA/CMA must publish a crypto service-provider licensing framework before any route exists"
+      }
+    },
+    {
+      "id": "sri_lanka",
+      "name": "Sri Lanka",
+      "list": "reserve",
+      "scores": {
+        "market_opportunity": 2,
+        "legality": 1.5,
+        "licence": 2,
+        "fx_custody": 2,
+        "clarity": 1.5
+      },
+      "screening_score_sheet": 1.8,
+      "research": {
+        "reserve_reason": "Cabinet approved drafting VASP law 28 Jul 2026; not enacted."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: Cabinet approved drafting VASP legislation (28 Jul 2026) but crypto stays outside the regulated system; no exchange is authorised; banks and cards cannot be used for crypto; derivat­ives not mentioned.",
+        "crypto_route": "Cabinet approved (28 Jul 2026) proposal to draft VASP legislation designating the SEC as regulator. Roadmap: AML amendments (FTRA) → prudential regime. Nothing is enacted. Crypto is not recognised as an asset class. Banks may not process crypto card or direct transactions (CBSL, Mar 2021).",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US equities not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Monitor SEC VASP law drafting and FTRA AML amendments; register with FIU once AML amendments pass; confirm CBSL banking restriction is lifted before any fiat on-ramp is possible; derivatives are not mentioned in the roadmap and will require separate SEC guidance",
+        "kyc_aml": "FIU supervision planned under FTRA amendments; no specific crypto AML rules yet. Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "Nothing to apply for. FTRA amendments (AML/CFT registration with FIU) are the first step; a full prudential regime under the SEC will follow. No capital figure or timeline published.",
+        "commercial_adoption": "22M population; crypto activity pushed underground by CBSL card ban (Mar 2021); no verified on-chain or exchange volume. Legalisation would unlock significant pent-up demand.",
+        "local_payment_rail": "Bank cards and direct fiat-crypto transfers are prohibited (CBSL Mar 2021); P2P via hawala-like channels only",
+        "main_hurdle": "CBSL banking restriction must be lifted and SEC VASP law enacted before any licensed operation is possible"
+      }
+    },
+    {
+      "id": "morocco",
+      "name": "Morocco",
+      "list": "reserve",
+      "scores": {
+        "market_opportunity": 3,
+        "legality": 1,
+        "licence": 2,
+        "fx_custody": 1,
+        "clarity": 1
+      },
+      "screening_score_sheet": 1.7,
+      "research": {
+        "reserve_reason": "2017 ban still in effect; draft Bill 42.25."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: the 2017 joint ban (Office des Changes + BAM + AMMC) is still in force; crypto transactions breach exchange regulations; Draft Bill 42.25 has no parliamentary date.",
+        "crypto_route": "2017 joint statement (Ministry of Finance + BAM + AMMC) declared crypto transactions an infringement of exchange regulations, liable to penalties. Draft Bill 42.25 (Nov 2025) would create CASP registration under AMMC/BAM — but it has no parliamentary submission date.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "US equities not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Monitor Bill 42.25 parliamentary progress; once enacted, obtain AMMC CASP registration (BAM regulates stablecoins; ANRF oversees AML/CFT); confirm that the 2017 exchange-regulation ban has been formally withdrawn; identify local bank partner for dirham rail access",
+        "kyc_aml": "Bill 42.25 proposes client identification, 10-year record keeping, STRs to ANRF (national financial intelligence). Not on FATF grey list.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "No licence exists. Bill 42.25 would create AMMC-supervised CASP registration (capital not yet published). BAM will regulate stablecoins with segregated reserve requirements. No enactment date.",
+        "commercial_adoption": "~6M crypto holders (~16% population) despite the ban; highest crypto transaction value in North Africa (2023); significant pent-up demand. Market unlocks only on enactment.",
+        "local_payment_rail": "Moroccan bank transfers (dirham) — foreign operator cannot access rails while the 2017 ban is in force",
+        "main_hurdle": "Bill 42.25 must be enacted and the 2017 joint ban formally withdrawn before any operation is lawful"
+      }
+    },
+    {
+      "id": "bangladesh",
+      "name": "Bangladesh",
+      "list": "reserve",
+      "scores": {
+        "market_opportunity": 3,
+        "legality": 1,
+        "licence": 1,
+        "fx_custody": 1,
+        "clarity": 1
+      },
+      "screening_score_sheet": 1.5,
+      "research": {
+        "reserve_reason": "Crypto effectively prohibited (FERA 1947 etc.)."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: all crypto transactions are treated as contraventions of the Foreign Exchange Regulation Act 1947; Bangladesh Bank reaffirmed the ban as recently as Sep 2025 and threatened licence revocation for facilitators. No exceptions.",
+        "crypto_route": "Bangladesh Bank has declared all crypto transactions in violation of the FER Act 1947, Money Laundering Prevention Act 2012 and Anti-Terrorism Act 2009. Warning Notice BB/CC/2025/17 (Sep 2025) threatened licence revocation and criminal prosecution for any entity facilitating crypto. No licensing authority or category exists.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "Not researched. Outward remittances under FER Act require authorisation; US equities route not viable under current rules.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Do not operate or target Bangladeshi users. Monitor Bangladesh Bank for any policy reversal; no actionable steps are possible while the FER Act ban is in force.",
+        "kyc_aml": "Comprehensive AML framework (Money Laundering Prevention Act 2012; Anti-Terrorism Act 2009) — but crypto is outside the regulated financial system and bank accounts associated with crypto are instructed to be closed.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "No licensing authority or category exists. Bangladesh Bank has stated it will not relax the ban until its regulatory infrastructure is stronger.",
+        "commercial_adoption": "170M+ population; large remittance market. Crypto activity is underground and illegal. Market is closed until Bangladesh Bank withdraws the FER Act position.",
+        "local_payment_rail": "bKash/Nagad and bank transfers — crypto platforms cannot access these rails; banks are instructed to close associated accounts",
+        "main_hurdle": "Bangladesh Bank must withdraw the FER Act prohibition; no actionable steps possible until then"
+      }
+    },
+    {
+      "id": "egypt",
+      "name": "Egypt",
+      "list": "reserve",
+      "scores": {
+        "market_opportunity": 2,
+        "legality": 1,
+        "licence": 1,
+        "fx_custody": 1,
+        "clarity": 1
+      },
+      "screening_score_sheet": 1.25,
+      "research": {
+        "reserve_reason": "Law 194/2020 prohibits crypto without CBE licence; none granted."
+      },
+      "deep_dive": {
+        "qualifies_reason": "Do not enter: Article 206 of Law 194/2020 prohibits all crypto trading and platform operation without CBE approval; no licence has ever been issued; penalties include imprisonment and fines up to EGP10M.",
+        "crypto_route": "Article 206 of Central Bank and Banking System Law No. 194/2020 prohibits issuing, trading, promoting or operating a crypto platform without prior CBE approval. No approval procedure has been published; no licence has ever been issued. CBE issued a fourth public warning in 2025.",
+        "crypto_route_source_type": "route_requires_confirmation",
+        "equities_route": "Not researched.",
+        "equities_route_source_type": "route_requires_confirmation",
+        "required_product_changes": "Do not operate or target Egyptian users. Monitor CBE for any published licensing procedure. No actionable steps are possible while Article 206 is enforced without a licence procedure.",
+        "kyc_aml": "General AML obligations apply to licensed financial institutions; no bespoke crypto AML/CFT framework because crypto is outside the regulated system. Dar al-Ifta 2018 fatwa (non-binding) declared crypto haram.",
+        "kyc_aml_source_type": "assumption",
+        "capital_and_licensing": "No licence procedure published. Article 206 theoretically permits CBE to grant approval, but as of 2026 no procedure, no fee, no capital requirement and no timeline exist.",
+        "commercial_adoption": "~3M holders via offshore/P2P channels despite the ban. CBE framing is consumer protection and capital-flight prevention. Market unlocks only if CBE publishes a licence procedure.",
+        "local_payment_rail": "Meeza/IBANS instant payment — crypto platforms are outside the regulated system and cannot access rails",
+        "main_hurdle": "CBE must publish a licensing procedure under Article 206 before any operation is lawful; none exists as of 2026"
+      }
+    }
+  ]
+}

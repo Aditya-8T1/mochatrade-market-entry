@@ -1,0 +1,315 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background-color: #fbf8f2;
+  color: #1c1a17;
+}
+
+body {
+  font-family: Karla, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Fraunces display: SOFT 100 everywhere; WONK only on H1 (.display-h1). */
+.font-display {
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+}
+.display-h1 {
+  font-family: "Fraunces Variable", Georgia, serif;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+/* One focus style for everything: 2px ink outline, 2px offset. */
+:focus-visible {
+  outline: 2px solid #1c1a17;
+  outline-offset: 2px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* The only gradient in the design. At most one per screen. */
+.hl {
+  background: linear-gradient(transparent 58%, #ffd9c4 58%);
+  padding: 0 4px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.hl-now {
+  background: linear-gradient(transparent 58%, #cdebd7 58%);
+}
+
+a.link {
+  color: #b8471f;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+a.link:hover {
+  color: #1c1a17;
+}
+
+/* Horizontal tab strips scroll on small screens without a visible bar. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
+/* Hatched segments for the "score minus friction" bars: the part of a
+   market's score eaten by adaptation cost or execution dependency.
+   Hatching, not just colour, so it survives print and colour-blind viewers. */
+.friction-hatch-a {
+  background: repeating-linear-gradient(135deg, rgba(154, 74, 22, 0.6) 0 3px, rgba(154, 74, 22, 0.14) 3px 6px);
+}
+.friction-hatch-e {
+  background: repeating-linear-gradient(45deg, rgba(180, 35, 24, 0.6) 0 3px, rgba(180, 35, 24, 0.14) 3px 6px);
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+  }
+  .print-plain {
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  a {
+    color: inherit !important;
+  }
+  .hl,
+  .hl-now {
+    background: none !important;
+  }
+}
+
+/* Welcome page: the pixel band's columns rise once on load. */
+.pixel-col {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: pixel-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes pixel-rise {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Interaction layer (v2.10): press feedback for touch and mouse, hover lifts
+   only on devices that can hover, and a few entrance motions. Everything
+   collapses to instant under prefers-reduced-motion (rule near the top).
+   ------------------------------------------------------------------------- */
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-press: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Anything tappable: no grey flash on mobile, no double-tap zoom delay. */
+a,
+button,
+label,
+summary,
+[role="tab"] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Press: the element dips under your finger or cursor. */
+.press {
+  transition:
+    transform 0.16s var(--ease-press),
+    box-shadow 0.2s var(--ease-out),
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+.press:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Lift: raised on hover (hover-capable devices only, so taps never stick). */
+.lift {
+  transition:
+    transform 0.25s var(--ease-out),
+    box-shadow 0.25s var(--ease-out),
+    background-color 0.2s ease;
+}
+@media (hover: hover) {
+  .lift:hover {
+    transform: translateY(-2px);
+  }
+  .press.lift:hover:active {
+    transform: translateY(0) scale(0.99);
+  }
+}
+
+/* Rows that become a raised card under the pointer (plan rows, guide rows). */
+.row-card {
+  position: relative;
+  border-radius: 20px;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.25s var(--ease-out),
+    transform 0.25s var(--ease-out);
+}
+@media (hover: hover) {
+  .row-card:hover {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(28, 26, 23, 0.05), 0 14px 28px -10px rgba(28, 26, 23, 0.18);
+    transform: translateY(-2px);
+  }
+}
+.row-card:active {
+  background-color: #ffffff;
+  transform: scale(0.99);
+}
+.row-card .row-arrow {
+  transition: transform 0.25s var(--ease-out), opacity 0.25s ease;
+}
+@media (hover: hover) {
+  .row-card:hover .row-arrow {
+    transform: translateX(4px);
+  }
+}
+
+/* Page change: the new page eases in. */
+.page-enter {
+  animation: page-enter 0.36s var(--ease-out) both;
+}
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Title page: one orchestrated load -- lines rise in order, then the band. */
+.rise {
+  animation: rise 0.7s var(--ease-out) both;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Floating layers: dropdowns and dialogs pop in; the scrim fades. */
+.pop-in {
+  animation: pop-in 0.22s var(--ease-out) both;
+  transform-origin: top center;
+}
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.dialog-in {
+  animation: dialog-in 0.3s var(--ease-out) both;
+}
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fade-in {
+  animation: fade-in 0.25s ease both;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* The compare bar slides up from the bottom edge. */
+.slide-up {
+  animation: slide-up 0.4s var(--ease-out) both;
+}
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* Bars grow from their start on first paint (score bars, risk meter). */
+.grow-x {
+  transform-origin: left center;
+  animation: grow-x 0.8s var(--ease-out) both;
+}
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* Pixel band: the hovered or tapped column stays, the rest step back. */
+.pixel-col {
+  transition: opacity 0.2s ease;
+}
+[data-band-active] .pixel-col:not([data-active]) {
+  opacity: 0.35;
+}
+
+/* Tab underline that slides to the active tab. */
+.tab-indicator {
+  transition:
+    transform 0.35s var(--ease-out),
+    width 0.35s var(--ease-out);
+}
